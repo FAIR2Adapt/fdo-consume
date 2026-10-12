@@ -1,0 +1,310 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "fdo-consume record, schema fdo-consume-record/4",
+ "type": "object",
+ "required": [
+  "schema",
+  "request",
+  "outcome",
+  "error",
+  "resolution",
+  "validation",
+  "compatibility",
+  "delivery",
+  "reached",
+  "stopped",
+  "steps",
+  "diagnostics",
+  "semantics",
+  "descriptor",
+  "selected",
+  "loaded",
+  "crate_sha256",
+  "contract_id",
+  "contract_sha256",
+  "package_version",
+  "record_sha256",
+  "started",
+  "duration_ms",
+  "duration_us"
+ ],
+ "properties": {
+  "schema": {
+   "const": "fdo-consume-record/4"
+  },
+  "request": {
+   "type": "object",
+   "required": [
+    "pid",
+    "contract",
+    "depth",
+    "source",
+    "want"
+   ]
+  },
+  "outcome": {
+   "enum": [
+    "ok",
+    "not_resolved",
+    "error"
+   ]
+  },
+  "error": {
+   "type": [
+    "object",
+    "null"
+   ]
+  },
+  "resolution": {
+   "type": "object",
+   "required": [
+    "status",
+    "evidence",
+    "diagnostics"
+   ],
+   "properties": {
+    "status": {
+     "enum": [
+      "PASS",
+      "PARTIAL",
+      "FAIL",
+      "INDETERMINATE",
+      "NOT_ATTEMPTED"
+     ]
+    },
+    "evidence": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "note": {
+     "type": "string"
+    },
+    "diagnostics": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "validation": {
+   "type": "object",
+   "required": [
+    "status",
+    "evidence",
+    "diagnostics"
+   ],
+   "properties": {
+    "status": {
+     "enum": [
+      "PASS",
+      "PARTIAL",
+      "FAIL",
+      "INDETERMINATE",
+      "NOT_ATTEMPTED"
+     ]
+    },
+    "evidence": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "note": {
+     "type": "string"
+    },
+    "diagnostics": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "compatibility": {
+   "type": "object",
+   "required": [
+    "status",
+    "evidence",
+    "diagnostics"
+   ],
+   "properties": {
+    "status": {
+     "enum": [
+      "PASS",
+      "PARTIAL",
+      "FAIL",
+      "INDETERMINATE",
+      "NOT_ATTEMPTED"
+     ]
+    },
+    "evidence": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "note": {
+     "type": "string"
+    },
+    "diagnostics": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "delivery": {
+   "type": "object",
+   "required": [
+    "status",
+    "evidence",
+    "diagnostics"
+   ],
+   "properties": {
+    "status": {
+     "enum": [
+      "PASS",
+      "PARTIAL",
+      "FAIL",
+      "INDETERMINATE",
+      "NOT_ATTEMPTED"
+     ]
+    },
+    "evidence": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "note": {
+     "type": "string"
+    },
+    "diagnostics": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "reached": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "stopped": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "steps": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "stage",
+     "id",
+     "name",
+     "status",
+     "detail"
+    ],
+    "properties": {
+     "notes": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "required": [
+        "code"
+       ]
+      }
+     }
+    }
+   }
+  },
+  "semantics": {
+   "type": [
+    "object",
+    "null"
+   ]
+  },
+  "descriptor": {
+   "type": [
+    "object",
+    "null"
+   ]
+  },
+  "selected": {
+   "type": [
+    "object",
+    "null"
+   ]
+  },
+  "loaded": {
+   "type": [
+    "object",
+    "null"
+   ]
+  },
+  "crate_sha256": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "contract_id": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "record_sha256": {
+   "type": "string",
+   "minLength": 64,
+   "maxLength": 64
+  },
+  "started": {
+   "type": "string"
+  },
+  "duration_ms": {
+   "type": "integer",
+   "minimum": 0
+  },
+  "duration_us": {
+   "type": "integer",
+   "minimum": 0
+  },
+  "contract_sha256": {
+   "type": [
+    "string",
+    "null"
+   ],
+   "pattern": "^[0-9a-f]{64}$"
+  },
+  "package_version": {
+   "type": "string"
+  },
+  "diagnostics": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "stage",
+     "id",
+     "code",
+     "side",
+     "status",
+     "who",
+     "retryable"
+    ]
+   },
+   "description": "every FAIL, PARTIAL or INDETERMINATE step and any error that ended the run"
+  }
+ },
+ "additionalProperties": false
+}

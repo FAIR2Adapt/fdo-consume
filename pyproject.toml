@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fdo-consume"
+dynamic = ["version"]
+description = "Consumer-side interpretation and binding of FAIR Digital Objects for application requirements."
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = ["PyYAML>=6"]
+
+[project.scripts]
+fdo-consume = "fdo_consume.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+fdo_consume = ["record.schema.json", "binding.schema.json", "semantics/data/*.json", "semantics/data/*.yaml", "profiles/maps/*.yaml", "contracts/data/*.yaml", "contracts/examples/*.yaml"]
+
+[tool.setuptools.dynamic]
+version = {attr = "fdo_consume._version.__version__"}

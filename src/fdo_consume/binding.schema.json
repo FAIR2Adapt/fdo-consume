@@ -1,0 +1,243 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "fdo-consume binding, schema fdo-consume-binding/5",
+ "description": "What the profile map found in one object, for one consumer: entities, resources, access, selection, evidence. No consumer-specific shape.",
+ "type": "object",
+ "required": [
+  "schema",
+  "object",
+  "consumer",
+  "entities",
+  "resources",
+  "selected",
+  "related",
+  "evidence"
+ ],
+ "$defs": {
+  "access": {
+   "type": "object",
+   "required": [
+    "state",
+    "rights",
+    "conditions",
+    "policy",
+    "requires_authorization"
+   ],
+   "properties": {
+    "state": {
+     "enum": [
+      "open",
+      "restricted",
+      "unknown"
+     ]
+    },
+    "rights": {
+     "type": "array"
+    },
+    "conditions": {
+     "type": "array"
+    },
+    "policy": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "requires_authorization": {
+     "type": [
+      "boolean",
+      "null"
+     ]
+    }
+   }
+  }
+ },
+ "properties": {
+  "schema": {
+   "const": "fdo-consume-binding/5"
+  },
+  "object": {
+   "type": "object",
+   "required": [
+    "pid",
+    "identifier",
+    "crate_sha256",
+    "name",
+    "description",
+    "date",
+    "licence",
+    "profiles",
+    "map",
+    "overlay",
+    "fields",
+    "access"
+   ]
+  },
+  "consumer": {
+   "type": "object",
+   "required": [
+    "contract",
+    "compatibility"
+   ]
+  },
+  "entities": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "type",
+     "provides",
+     "holders",
+     "pid",
+     "profiles",
+     "fields",
+     "access"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "type": {
+      "type": "string"
+     },
+     "provides": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      },
+      "description": "canonical concepts the entity provides, e.g. Assertion"
+     },
+     "holders": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "pid": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "profiles": {
+      "type": "array"
+     },
+     "fields": {
+      "type": "object"
+     },
+     "access": {
+      "$ref": "#/$defs/access"
+     }
+    }
+   }
+  },
+  "resources": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "type",
+     "holders",
+     "pid",
+     "url",
+     "in_crate",
+     "media_type",
+     "media_type_source",
+     "declared_media_type",
+     "size",
+     "checksum",
+     "payload",
+     "why_not_payload",
+     "access",
+     "accepted"
+    ],
+    "properties": {
+     "url": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "in_crate": {
+      "type": "boolean"
+     },
+     "media_type": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "size": {
+      "type": [
+       "integer",
+       "null"
+      ]
+     },
+     "checksum": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "payload": {
+      "type": "boolean"
+     },
+     "why_not_payload": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "access": {
+      "$ref": "#/$defs/access"
+     },
+     "accepted": {
+      "type": "boolean"
+     },
+     "media_type_source": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "declared_media_type": {
+      "type": [
+       "string",
+       "null"
+      ]
+     }
+    }
+   }
+  },
+  "selected": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "related": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "name",
+     "profiles",
+     "has_map"
+    ]
+   }
+  },
+  "evidence": {
+   "type": "object",
+   "required": [
+    "statuses",
+    "inference_used",
+    "shape_hints",
+    "steps"
+   ]
+  }
+ },
+ "additionalProperties": false
+}
