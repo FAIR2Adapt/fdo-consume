@@ -1,0 +1,31 @@
+contract_id: metadata-panel-v1
+version: 1
+consumer:
+  service: "reference metadata panel"
+  capability: "head a page and list title, description, licence, date and authors"
+source:
+  repository: "fdo-consume"
+  path: "fixtures/example-profile/contracts"
+  symbol: "example consumer contracts"
+  reviewed: "2026-10-12"
+needs:
+  - term: title
+    level: must
+    source: "RO-Crate root data entity: name"
+    reason: "the panel is headed with the title"
+  - term: description
+    level: should
+    source: "RO-Crate root data entity: description"
+    reason: "the panel shows the description"
+  - term: licence
+    level: should
+    source: "RO-Crate root data entity: license"
+    reason: "the panel shows the licence"
+  - term: date
+    level: should
+    source: "RO-Crate root data entity: datePublished"
+    reason: "the panel shows the publication date"
+  - term: author
+    level: should
+    source: "RO-Crate contextual entity: author"
+    reason: "the panel lists the authors"

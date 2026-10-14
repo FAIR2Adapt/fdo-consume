@@ -1,0 +1,15 @@
+contract_id: claims-panel-v1
+version: 1
+consumer:
+  service: "reference claims panel"
+  capability: "list the assertions of an object"
+source:
+  repository: "fdo-consume"
+  path: "fixtures/example-profile/contracts"
+  symbol: "example consumer contracts"
+  reviewed: "2026-10-12"
+needs:
+  - term: Assertion
+    level: must
+    source: "canonical concept; a profile map names the entity that provides it"
+    reason: "the panel lists at least one assertion"

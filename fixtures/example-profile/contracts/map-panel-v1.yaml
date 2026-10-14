@@ -1,0 +1,24 @@
+contract_id: map-panel-v1
+version: 1
+consumer:
+  service: "reference map panel"
+  capability: "draw one map layer from a map file and colour it by a variable"
+source:
+  repository: "fdo-consume"
+  path: "fixtures/example-profile/contracts"
+  symbol: "example consumer contracts"
+  reviewed: "2026-10-12"
+accepts:
+  - application/vnd.pmtiles
+  - application/vnd.flatgeobuf
+  - application/flatgeobuf
+  - application/geo+json
+needs:
+  - term: resources
+    level: must
+    source: "a payload part in one of the accepted map formats"
+    reason: "without a map file there is nothing to draw"
+  - term: Variable
+    level: must
+    source: "canonical concept; a profile map names the entity that provides it"
+    reason: "the layer is coloured by a variable"
