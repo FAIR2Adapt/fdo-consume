@@ -1,0 +1,63 @@
+id: cca-crate-0.9
+status: published
+source: "cca-crate-profile repository, docs/index.md (sections Metadata File Descriptor, CCA-specific Entities/Requirements) and docs/shacl/cca-profile-shacl.ttl, commit 77b4e5a, read 9 October 2026"
+selects:
+  - https://w3id.org/cc-crate-profile/0.9
+  - https://w3id.org/cca-crate-profile/0.9
+identity: identifier
+fields:
+  title: {iri: "https://schema.org/name", level: must, source: "RO-Crate 1.2 root data entity: name MUST; inherited by the profile"}
+  description: {iri: "https://schema.org/description", level: must, source: "RO-Crate 1.2 root data entity: description MUST; inherited by the profile"}
+  licence: {iri: "https://schema.org/license", level: should, source: "RO-Crate 1.2 root data entity: license SHOULD; inherited by the profile"}
+  date: {iri: "https://schema.org/datePublished", level: must, source: "RO-Crate 1.2 root data entity: datePublished MUST; inherited by the profile"}
+  identifier: {iri: "https://schema.org/identifier", level: may}
+  profile: {iri: "http://purl.org/dc/terms/conformsTo", level: should}
+  keywords: {iri: "https://schema.org/keywords", level: may, many: true, source: "RO-Crate 1.2 root data entity: keywords (not in the profile text)"}
+  type: {iri: "https://schema.org/additionalType", level: may, many: true, source: "schema.org additionalType as RO-Crate uses it (not in the profile text)"}
+  author: {iri: ["https://schema.org/author", "https://schema.org/name"], level: may, many: true, source: "RO-Crate 1.2 contextual entities: author as Person or Organization, read by name (not in the profile text)"}
+  status: {iri: "https://schema.org/creativeWorkStatus", level: may, source: "schema.org creativeWorkStatus on the root (not in the profile text); a consumer shows a synthetic or draft object as such"}
+links:
+  Product: "https://schema.org/isRelatedTo"
+  Variable: "https://schema.org/variableMeasured"
+  Project: "https://schema.org/publisher"
+  Network: "https://w3id.org/ro/terms/cca/hasNetwork"
+  Campaign: "https://w3id.org/ro/terms/cca/hasCampaign"
+  Dataset: "https://schema.org/hasPart"
+entities:
+  File:
+    via: "https://schema.org/hasPart"
+    type: "https://schema.org/MediaObject"
+    role: resource
+    fields:
+      url: {iri: "https://schema.org/contentUrl", level: may}
+      media_type: {iri: "https://schema.org/encodingFormat", level: should}
+      size: {iri: "https://schema.org/contentSize", level: may}
+  Product:
+    type: "https://schema.org/Product"
+    fields:
+      variable: {iri: "https://schema.org/variableMeasured", level: should}
+      depth: {iri: "https://schema.org/depth", level: should}
+      time_range: {iri: "https://schema.org/temporalCoverage", level: should}
+      spatial_extent: {iri: "https://schema.org/spatialCoverage", level: should}
+      scenario: {iri: "https://w3id.org/ro/terms/cca/scenarioId", level: should}
+      grid_resolution: {iri: "http://data.europa.eu/930/spatialResolutionAsText", level: should}
+      licence: {iri: "https://schema.org/license", level: should}
+      version_doi: {iri: "https://schema.org/identifier", level: should}
+      provenance: {iri: "http://purl.org/dc/terms/provenance", level: should}
+  Variable:
+    type: "https://w3id.org/iadopt/ont/Variable"
+    fields:
+      name: {iri: "https://schema.org/name", level: may}
+      url: {iri: "https://schema.org/url", level: may}
+  Dataset:
+    type: "https://schema.org/Dataset"
+    fields:
+      name: {iri: "https://schema.org/name", level: may}
+      description: {iri: "https://schema.org/description", level: may}
+      identifier: {iri: "https://schema.org/identifier", level: may}
+      data_collector: {iri: "https://w3id.org/citedcat-ap/dataCollector", level: should}
+      origin: {iri: "http://purl.org/dc/terms/source", level: should}
+      nature: {iri: "https://w3id.org/ro/terms/cca/dataNature", level: should}
+      scale: {iri: "https://schema.org/spatialCoverage", level: should}
+      sensitivity: {iri: "https://w3id.org/dpv#hasSensitivityLevel", level: should}
+      format: {iri: "http://purl.org/dc/terms/format", level: may}

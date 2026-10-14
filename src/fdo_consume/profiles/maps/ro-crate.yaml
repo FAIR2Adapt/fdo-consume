@@ -1,0 +1,25 @@
+id: ro-crate
+status: default
+source: "RO-Crate 1.2 specification, Root Data Entity (https://www.researchobject.org/ro-crate/specification/1.2/root-data-entity); no profile"
+selects: []
+identity: identifier
+fields:
+  title: {iri: "https://schema.org/name", level: must, source: "RO-Crate 1.2 root data entity: name MUST"}
+  description: {iri: "https://schema.org/description", level: must, source: "RO-Crate 1.2 root data entity: description MUST"}
+  licence: {iri: "https://schema.org/license", level: should}
+  date: {iri: "https://schema.org/datePublished", level: must, source: "RO-Crate 1.2 root data entity: datePublished MUST"}
+  identifier: {iri: "https://schema.org/identifier", level: may}
+  profile: {iri: "http://purl.org/dc/terms/conformsTo", level: should}
+  keywords: {iri: "https://schema.org/keywords", level: may, many: true, source: "RO-Crate 1.2 root data entity: keywords (not in the profile text)"}
+  type: {iri: "https://schema.org/additionalType", level: may, many: true, source: "schema.org additionalType as RO-Crate uses it (not in the profile text)"}
+  author: {iri: ["https://schema.org/author", "https://schema.org/name"], level: may, many: true, source: "RO-Crate 1.2 contextual entities: author as Person or Organization, read by name (not in the profile text)"}
+entities:
+  File:
+    via: "https://schema.org/hasPart"
+    type: "https://schema.org/MediaObject"
+    role: resource
+    level: may
+    fields:
+      url: {iri: "https://schema.org/contentUrl", level: may}
+      media_type: {iri: "https://schema.org/encodingFormat", level: should}
+      size: {iri: "https://schema.org/contentSize", level: may}

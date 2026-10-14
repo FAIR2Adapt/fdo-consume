@@ -1,0 +1,50 @@
+id: knowledge-loom-0.1.0
+status: draft
+source: "Knowledge Loom Record RO-Crate Profile 0.1.0 (draft), profile/0.1.0.md sections 3, 5, 6, 7, 8, 9 of loom_profile-main (commit bae42570, read 11 October 2026). The profile does not require the root entity to declare the profile URI, so this map must be selected explicitly when needed (option profile=knowledge-loom-0.1.0); terms and levels written by hand from the text"
+selects:
+  - https://knowledgeloom.science/profile/record/0.1.0
+identity: deposit
+fields:
+  title: {iri: "https://schema.org/name", level: must}
+  description: {iri: "https://schema.org/description", level: must}
+  author: {iri: "https://schema.org/author", level: must}
+  author_name: {iri: ["https://schema.org/author", "https://schema.org/name"], level: should, many: true}   # section 6: the Person SHOULD have a name
+  date: {iri: "https://schema.org/datePublished", level: must}
+  licence: {iri: "https://schema.org/license", level: must}
+  based_on: {iri: "https://schema.org/isBasedOn", level: must}
+  status: {iri: "https://schema.org/status", level: must}
+  profile: {iri: "http://purl.org/dc/terms/conformsTo", level: may}
+  identifier: {iri: "https://schema.org/identifier", level: may}
+  keywords: {iri: "https://schema.org/keywords", level: may, many: true}
+  type: {iri: "https://schema.org/additionalType", level: may, many: true}
+  research_field: {iri: "https://schema.org/about", level: may, many: true}   # section 5: research field as text
+  publisher: {iri: ["https://schema.org/publisher", "https://schema.org/name"], level: may}
+entities:
+  File:
+    via: "https://schema.org/hasPart"
+    type: "https://schema.org/MediaObject"
+    role: resource
+    fields:
+      url: {iri: "https://schema.org/contentUrl", level: may}
+      media_type: {iri: "https://schema.org/encodingFormat", level: should}
+      size: {iri: "https://schema.org/contentSize", level: may}
+  Statement:
+    type: "https://knowledgeloom.science/Statement"
+    provides: [Assertion]
+    fields:
+      label: {iri: "http://www.w3.org/2000/01/rdf-schema#label", level: must}
+      notation: {iri: "https://knowledgeloom.science/notation", level: must}
+      concepts: {iri: "https://knowledgeloom.science/concepts", level: may}
+  Concept:
+    type: "http://www.w3.org/2004/02/skos/core#Concept"
+    fields:
+      label: {iri: "http://www.w3.org/2000/01/rdf-schema#label", level: should}
+rules:
+  - when: {field: status, equals: published}
+    require: {entity: Statement, min: 1}
+    reason: "profile section 5.1: a published record has at least one statement"
+  - when: {field: status, equals: published}
+    require: {field: date}
+    reason: "profile section 5: datePublished is required in every lifecycle state"
+tokens:
+  status: [unpublished, embargoed, published]
