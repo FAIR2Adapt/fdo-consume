@@ -1,0 +1,63 @@
+{
+  "@context": "https://w3id.org/ro/crate/1.1/context",
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "about": {
+        "@id": "./"
+      },
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      }
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": "Synthetic finding on street trees and night heat (synthetic knowledge record)",
+      "description": "Synthetic test object used for software validation. A knowledge record: two statements, one figure and one evidence file. It states no identifier and no profile.",
+      "datePublished": "2026-02-10",
+      "license": {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "isBasedOn": {
+        "@id": "#article"
+      },
+      "hasPart": [
+        {
+          "@id": "figure-1.png"
+        },
+        {
+          "@id": "evidence-1.json"
+        }
+      ]
+    },
+    {
+      "@id": "#article",
+      "@type": "ScholarlyArticle",
+      "name": "An example article that does not exist"
+    },
+    {
+      "@id": "#statement-1",
+      "@type": "Statement",
+      "rdfs:label": "Synthetic statement: wards with fewer street trees stay warmer after sunset."
+    },
+    {
+      "@id": "#statement-2",
+      "@type": "Statement",
+      "rdfs:label": "Synthetic statement: the difference is largest in the first hours of the night."
+    },
+    {
+      "@id": "figure-1.png",
+      "@type": "File",
+      "name": "figure-1.png",
+      "encodingFormat": "image/png"
+    },
+    {
+      "@id": "evidence-1.json",
+      "@type": "File",
+      "name": "evidence-1.json",
+      "encodingFormat": "application/ld+json"
+    }
+  ]
+}

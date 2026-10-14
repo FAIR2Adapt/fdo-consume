@@ -1,0 +1,25 @@
+{
+  "@context": "https://w3id.org/ro/crate/1.1/context",
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "conformsTo": {"@id": "https://w3id.org/ro/crate/1.1"},
+      "about": {"@id": "./"}
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "identifier": "https://example.org/fdo/synthetic/member-1",
+      "name": "Synthetic field notes on an example river",
+      "description": "Synthetic test object used for software validation. Complete, and states a profile.",
+      "additionalType": {"@id": "https://example.org/fdo/synthetic/types/report"},
+      "license": {"@id": "https://creativecommons.org/licenses/by/4.0/"},
+      "datePublished": "2026-01-15",
+      "conformsTo": [
+        {"@id": "https://w3id.org/ro/crate/1.1"},
+        {"@id": "https://example.org/fdo/synthetic/profile/base/0.9"}
+      ]
+    }
+  ]
+}

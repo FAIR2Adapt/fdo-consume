@@ -1,0 +1,15 @@
+{
+ "_note": "synthetic objects for the example profile; no real data",
+ "https://example.org/object/full": {
+  "fixture": "full"
+ },
+ "https://example.org/object/no-findings": {
+  "fixture": "no-findings"
+ },
+ "https://example.org/object/collection": {
+  "fixture": "collection"
+ },
+ "https://example.org/object/no-identifier": {
+  "fixture": "no-identifier"
+ }
+}

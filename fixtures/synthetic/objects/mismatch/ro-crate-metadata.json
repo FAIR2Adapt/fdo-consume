@@ -1,0 +1,21 @@
+{
+  "@context": "https://w3id.org/ro/crate/1.1/context",
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "conformsTo": {"@id": "https://w3id.org/ro/crate/1.1"},
+      "about": {"@id": "./"}
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "identifier": "https://example.org/fdo/synthetic/another-object",
+      "name": "Synthetic record that names another object",
+      "description": "Synthetic test object used for software validation. Its identifier is not its PID.",
+      "additionalType": "Report",
+      "license": {"@id": "https://creativecommons.org/licenses/by/4.0/"},
+      "datePublished": "2026-03-20"
+    }
+  ]
+}

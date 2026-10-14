@@ -1,0 +1,41 @@
+{
+  "@context": "https://w3id.org/ro/crate/1.1/context",
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "conformsTo": {"@id": "https://w3id.org/ro/crate/1.1"},
+      "about": {"@id": "./"}
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "identifier": "https://example.org/fdo/synthetic/member-4",
+      "name": "Synthetic flood risk zones of an example town",
+      "description": "Synthetic test object used for software validation. A map layer with two parts.",
+      "additionalType": "Map layer",
+      "license": {"@id": "https://creativecommons.org/licenses/by/4.0/"},
+      "datePublished": "2026-03-01",
+      "hasPart": [
+        {"@id": "risk.fgb"},
+        {"@id": "buildings-restricted.fgb"}
+      ]
+    },
+    {
+      "@id": "risk.fgb",
+      "@type": "File",
+      "name": "risk.fgb",
+      "encodingFormat": "application/vnd.flatgeobuf",
+      "contentUrl": "https://example.org/payload/synthetic/risk.fgb",
+      "contentSize": 2600000000
+    },
+    {
+      "@id": "buildings-restricted.fgb",
+      "@type": "File",
+      "name": "buildings-restricted.fgb",
+      "encodingFormat": "application/vnd.flatgeobuf",
+      "contentUrl": "https://example.org/payload/synthetic/buildings-restricted.fgb",
+      "conditionsOfAccess": "restricted"
+    }
+  ]
+}

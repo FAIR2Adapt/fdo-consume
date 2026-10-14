@@ -1,0 +1,1 @@
+{"@graph": [{"@id": "ro-crate-metadata.json", "@type": "CreativeWork", "about": {"@id": "./"}}, {"@id": "./", "@type": "Dataset", "identifier": "https://example.org/stand-in/no-context", "name": "No context (synthetic)"}]}

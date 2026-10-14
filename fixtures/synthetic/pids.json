@@ -1,0 +1,27 @@
+{
+  "_note": "Synthetic test fixtures; not derived from real research objects.",
+  "https://example.org/fdo/synthetic/collection": {
+    "fixture": "collection"
+  },
+  "https://example.org/fdo/synthetic/member-1": {
+    "fixture": "member-1"
+  },
+  "https://example.org/fdo/synthetic/member-2": {
+    "fixture": "member-2"
+  },
+  "https://example.org/fdo/synthetic/member-3": {
+    "fixture": "member-3"
+  },
+  "https://example.org/fdo/synthetic/member-4": {
+    "fixture": "member-4"
+  },
+  "https://example.org/fdo/synthetic/hollow": {
+    "fixture": "hollow"
+  },
+  "https://example.org/fdo/synthetic/mismatch": {
+    "fixture": "mismatch"
+  },
+  "https://example.org/fdo/synthetic/knowledge-record": {
+    "fixture": "knowledge-record"
+  }
+}
