@@ -1,0 +1,15 @@
+{
+ "_note": "stand-in PIDs; synthetic test objects: a Data FDO (and the same object with the other spelling of the profile IRI and no identifier) in the shape of the CCA-Crate profile 0.9, a Knowledge Loom record migrated to profile 0.1.0, and the unmigrated legacy export.",
+ "https://example.org/stand-in/hamburg-cca-profile-demo": {
+  "fixture": "hamburg-cca-profile-demo"
+ },
+ "https://example.org/stand-in/hamburg-loom-record": {
+  "fixture": "hamburg-loom-record"
+ },
+ "https://example.org/stand-in/hamburg-legacy-loom": {
+  "fixture": "hamburg-legacy-loom"
+ },
+ "https://example.org/stand-in/hamburg-cca-spelling-b": {
+  "fixture": "hamburg-cca-spelling-b"
+ }
+}

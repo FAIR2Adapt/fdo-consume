@@ -1,0 +1,402 @@
+{
+ "@context": [
+  "https://w3id.org/ro/crate/1.3/context",
+  {
+   "loom": "https://knowledgeloom.science/",
+   "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+   "skos": "http://www.w3.org/2004/02/skos/core#",
+   "rdfs:label": "http://www.w3.org/2000/01/rdf-schema#label",
+   "skos:definition": "http://www.w3.org/2004/02/skos/core#definition",
+   "rdfs:seeAlso": {
+    "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+    "@type": "@id"
+   },
+   "skos:exactMatch": {
+    "@id": "http://www.w3.org/2004/02/skos/core#exactMatch",
+    "@type": "@id"
+   },
+   "skos:closeMatch": {
+    "@id": "http://www.w3.org/2004/02/skos/core#closeMatch",
+    "@type": "@id"
+   },
+   "concepts": {
+    "@id": "loom:concepts",
+    "@type": "@id"
+   },
+   "notation": "loom:notation",
+   "qudt": "http://qudt.org/schema/qudt/",
+   "unit": "http://qudt.org/vocab/unit/",
+   "base": "null://null/",
+   "Component": "base:Component",
+   "Measure": "base:Measure",
+   "Variable": "base:Variable",
+   "ObjectOfInterest": "base:ObjectOfInterest",
+   "Property": "base:Property",
+   "components": "base:components",
+   "supports": "base:supports",
+   "stringMatch": "base:stringMatch",
+   "objectOfInterest": "base:objectOfInterest",
+   "property": "base:property",
+   "operation": "base:operation",
+   "constraint": "base:constraint",
+   "qudt:unit": "http://qudt.org/schema/qudt/unit"
+  }
+ ],
+ "@graph": [
+  {
+   "@id": "ro-crate-metadata.json",
+   "@type": "CreativeWork",
+   "conformsTo": {
+    "@id": "https://w3id.org/ro/crate/1.3"
+   },
+   "about": {
+    "@id": "./"
+   }
+  },
+  {
+   "@id": "./",
+   "@type": "Dataset",
+   "author": [
+    {
+     "@id": "https://example.org/person/author-1"
+    }
+   ],
+   "datePublished": "2026-03-19T09:32:48+00:00",
+   "description": "A synthetic study description used only for software testing: flood risk and social vulnerability in the Hamburg demo run, used only to test software.",
+   "hasPart": [
+    {
+     "@id": "1hbakl9o.png"
+    },
+    {
+     "@id": "64ebazvu.png"
+    },
+    {
+     "@id": "60baakbr.png"
+    },
+    {
+     "@id": "dcrhs811.json"
+    },
+    {
+     "@id": "4yytye5v.json"
+    },
+    {
+     "@id": "2ckp1eat.json"
+    }
+   ],
+   "isBasedOn": [
+    {
+     "@id": "#4f65a2e8-6016-40c0-936b-77fe0eb2c5e2"
+    }
+   ],
+   "license": {
+    "@id": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   "name": "Urban flood risk and social vulnerability for the Hamburg demo run (test object)",
+   "publisher": {
+    "@id": "https://example.org/institute"
+   },
+   "status": "unpublished",
+   "creativeWorkStatus": "demo record: the three statements are about the Hamburg demo run; the source-article metadata is a placeholder (no DOI)",
+   "conformsTo": {
+    "@id": "https://knowledgeloom.science/profile/record/0.1.0"
+   }
+  },
+  {
+   "@id": "https://knowledgeloom.science/profile/record/0.1.0",
+   "@type": [
+    "CreativeWork",
+    "Profile"
+   ],
+   "name": "Knowledge Loom Record RO-Crate Profile 0.1.0 (candidate URI)"
+  },
+  {
+   "@id": "https://example.org/org/example-university-2",
+   "@type": [
+    "Organization"
+   ],
+   "name": "Example University",
+   "url": "https://example.org/"
+  },
+  {
+   "@id": "https://example.org/org/example-university-1",
+   "@type": [
+    "Organization"
+   ],
+   "name": "Example University",
+   "url": "https://example.org/"
+  },
+  {
+   "@id": "https://example.org/org/example-university-3",
+   "@type": [
+    "Organization"
+   ],
+   "name": "Example University",
+   "url": "https://example.org/"
+  },
+  {
+   "@id": "https://example.org/institute",
+   "@type": [
+    "Organization"
+   ],
+   "name": "Example Institute",
+   "url": "https://example.org/"
+  },
+  {
+   "@id": "https://example.org/person/author-1",
+   "@type": "Person",
+   "familyName": "Author 1",
+   "givenName": "Example",
+   "name": "Example Author 1"
+  },
+  {
+   "@id": "https://example.org/person/author-2",
+   "@type": "Person",
+   "familyName": "Author 2",
+   "givenName": "Example",
+   "name": "Example Author 2"
+  },
+  {
+   "@id": "https://example.org/person/author-3",
+   "@type": "Person",
+   "familyName": "Author 3",
+   "givenName": "Example",
+   "name": "Example Author 3"
+  },
+  {
+   "@id": "https://example.org/person/author-4",
+   "@type": "Person",
+   "familyName": "Author 4",
+   "givenName": "Example",
+   "name": "Example Author 4"
+  },
+  {
+   "@id": "#example-author-5",
+   "@type": "Person",
+   "familyName": "Author 5",
+   "givenName": "Example",
+   "name": "Example Author 5"
+  },
+  {
+   "@id": "#example-author-6",
+   "@type": "Person",
+   "familyName": "Author 6",
+   "givenName": "Example",
+   "name": "Example Author 6"
+  },
+  {
+   "@id": "https://example.org/person/author-7",
+   "@type": "Person",
+   "familyName": "Author 7",
+   "givenName": "Example",
+   "name": "Example Author 7"
+  },
+  {
+   "@id": "https://example.org/person/author-8",
+   "@type": "Person",
+   "familyName": "Author 8",
+   "givenName": "Example",
+   "name": "Example Author 8"
+  },
+  {
+   "@id": "https://example.org/person/author-9",
+   "@type": "Person",
+   "familyName": "Author 9",
+   "givenName": "Example",
+   "name": "Example Author 9"
+  },
+  {
+   "@id": "https://example.org/person/author-10",
+   "@type": "Person",
+   "familyName": "Author 10",
+   "givenName": "Example",
+   "name": "Example Author 10"
+  },
+  {
+   "@id": "#ba9ed064-84de-4683-a3b0-359a36ba73f6",
+   "@type": [
+    "skos:Concept"
+   ],
+   "rdfs:label": "Hamburg",
+   "rdfs:seeAlso": "https://example.org/concept/hamburg",
+   "skos:definition": "The city of the demo run; values are synthetic."
+  },
+  {
+   "@id": "#43b421c0-1703-4fde-bf64-110239d30de3",
+   "@type": [
+    "skos:Concept"
+   ],
+   "rdfs:label": "Pluvial flooding",
+   "rdfs:seeAlso": "https://example.org/concept/pluvial-flooding",
+   "skos:definition": "Flooding caused by heavy rain."
+  },
+  {
+   "@id": "#3869740a-9472-4f08-8d93-d31846a09bcf",
+   "@type": [
+    "skos:Concept"
+   ],
+   "rdfs:label": "Area A",
+   "rdfs:seeAlso": "https://example.org/concept/area-a",
+   "skos:definition": "A synthetic area label used in the test."
+  },
+  {
+   "@id": "#dc77fd8b-fe89-4396-89be-1d746fdd427d",
+   "@type": [
+    "skos:Concept"
+   ],
+   "rdfs:label": "Area B",
+   "rdfs:seeAlso": "https://example.org/concept/area-b",
+   "skos:definition": "A synthetic area label used in the test."
+  },
+  {
+   "@id": "#9480b9e1-5fbd-465c-83c1-8fbd52c159ae",
+   "@type": [
+    "skos:Concept"
+   ],
+   "rdfs:label": "Social vulnerability",
+   "rdfs:seeAlso": "https://example.org/concept/social-vulnerability",
+   "skos:definition": "The degree to which a population is susceptible to harm from hazards."
+  },
+  {
+   "@id": "1hbakl9o.png",
+   "@type": [
+    "File"
+   ],
+   "encodingFormat": "image/png",
+   "name": "1hbakl9o.png"
+  },
+  {
+   "@id": "64ebazvu.png",
+   "@type": [
+    "File"
+   ],
+   "encodingFormat": "image/png",
+   "name": "64ebazvu.png"
+  },
+  {
+   "@id": "60baakbr.png",
+   "@type": [
+    "File"
+   ],
+   "encodingFormat": "image/png",
+   "name": "60baakbr.png"
+  },
+  {
+   "@id": "https://creativecommons.org/licenses/by/4.0/",
+   "@type": [
+    "CreativeWork"
+   ],
+   "description": "This work is licensed under Creative Commons Attribution 4.0 International. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/",
+   "identifier": "https://creativecommons.org/licenses/by/4.0/",
+   "name": "CC BY 4.0"
+  },
+  {
+   "@id": "#4f65a2e8-6016-40c0-936b-77fe0eb2c5e2",
+   "@type": [
+    "ScholarlyArticle"
+   ],
+   "abstract": "placeholder",
+   "author": [
+    {
+     "@id": "https://example.org/person/author-1"
+    }
+   ],
+   "name": "Placeholder source article (metadata not yet available)"
+  },
+  {
+   "@id": "#e5b60d07-c048-4f7d-b7c6-9bae9083c7ad",
+   "@type": [
+    "loom:Statement"
+   ],
+   "concepts": [
+    {
+     "@id": "#ba9ed064-84de-4683-a3b0-359a36ba73f6"
+    },
+    {
+     "@id": "#43b421c0-1703-4fde-bf64-110239d30de3"
+    },
+    {
+     "@id": "#3869740a-9472-4f08-8d93-d31846a09bcf"
+    }
+   ],
+   "notation": "LinguisticStatement",
+   "rdfs:label": "Synthetic test statement 1 for the Hamburg demo run (not a finding)."
+  },
+  {
+   "@id": "dcrhs811.json",
+   "@type": [
+    "File"
+   ],
+   "components": [],
+   "encodingFormat": "application/ld+json",
+   "name": "dcrhs811.json",
+   "supports": [
+    {
+     "@id": "#e5b60d07-c048-4f7d-b7c6-9bae9083c7ad"
+    }
+   ]
+  },
+  {
+   "@id": "#c5e8f5df-c589-4dd0-897d-61c215ef2fbd",
+   "@type": [
+    "loom:Statement"
+   ],
+   "concepts": [
+    {
+     "@id": "#ba9ed064-84de-4683-a3b0-359a36ba73f6"
+    },
+    {
+     "@id": "#9480b9e1-5fbd-465c-83c1-8fbd52c159ae"
+    }
+   ],
+   "notation": "LinguisticStatement",
+   "rdfs:label": "Synthetic test statement 2 for the Hamburg demo run (not a finding)."
+  },
+  {
+   "@id": "4yytye5v.json",
+   "@type": [
+    "File"
+   ],
+   "components": [],
+   "encodingFormat": "application/ld+json",
+   "name": "4yytye5v.json",
+   "supports": [
+    {
+     "@id": "#c5e8f5df-c589-4dd0-897d-61c215ef2fbd"
+    }
+   ]
+  },
+  {
+   "@id": "#dd84f7ed-6079-4760-8c13-d6d502df127a",
+   "@type": [
+    "loom:Statement"
+   ],
+   "concepts": [
+    {
+     "@id": "#3869740a-9472-4f08-8d93-d31846a09bcf"
+    },
+    {
+     "@id": "#dc77fd8b-fe89-4396-89be-1d746fdd427d"
+    },
+    {
+     "@id": "#9480b9e1-5fbd-465c-83c1-8fbd52c159ae"
+    }
+   ],
+   "notation": "LinguisticStatement",
+   "rdfs:label": "Synthetic test statement 3 for the Hamburg demo run (not a finding)."
+  },
+  {
+   "@id": "2ckp1eat.json",
+   "@type": [
+    "File"
+   ],
+   "components": [],
+   "encodingFormat": "application/ld+json",
+   "name": "2ckp1eat.json",
+   "supports": [
+    {
+     "@id": "#dd84f7ed-6079-4760-8c13-d6d502df127a"
+    }
+   ]
+  }
+ ]
+}
