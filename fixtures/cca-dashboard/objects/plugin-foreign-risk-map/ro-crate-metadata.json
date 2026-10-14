@@ -1,0 +1,165 @@
+{
+ "@context": [
+  "https://w3id.org/ro/crate/1.2/context",
+  {
+   "input": "https://bioschemas.org/properties/input",
+   "FormalParameter": "https://bioschemas.org/FormalParameter",
+   "valueRequired": "https://schema.org/valueRequired",
+   "valueName": "https://schema.org/valueName",
+   "defaultValue": "https://schema.org/defaultValue",
+   "softwareVersion": "https://schema.org/softwareVersion",
+   "WebPageElement": "https://schema.org/WebPageElement",
+   "PropertyValueSpecification": "https://schema.org/PropertyValueSpecification",
+   "instrument": "https://schema.org/instrument",
+   "object": "https://schema.org/object",
+   "position": "https://schema.org/position"
+  }
+ ],
+ "@graph": [
+  {
+   "@id": "ro-crate-metadata.json",
+   "@type": "CreativeWork",
+   "conformsTo": {
+    "@id": "https://w3id.org/ro/crate/1.2"
+   },
+   "about": {
+    "@id": "./"
+   }
+  },
+  {
+   "@id": "./",
+   "@type": "Dataset",
+   "name": "Dashboard plugin: foreign-risk-map (synthetic, another author)",
+   "description": "A bivariate risk map by another author. Synthetic test object used for software validation.",
+   "identifier": "https://example.org/stand-in/plugin/foreign-risk-map",
+   "datePublished": "2026-10-13",
+   "license": {
+    "@id": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   "author": {
+    "@id": "#fixture-builder"
+   },
+   "publisher": {
+    "@id": "https://example.org/institute"
+   },
+   "conformsTo": {
+    "@id": "https://w3id.org/cca-crate-profile/0.9"
+   },
+   "mainEntity": {
+    "@id": "#plugin"
+   },
+   "creativeWorkStatus": "demo: synthetic; no PID minted yet"
+  },
+  {
+   "@id": "https://w3id.org/cca-crate-profile/0.9",
+   "@type": [
+    "CreativeWork",
+    "Profile"
+   ],
+   "name": "CCA-Crate profile 0.9 (test object)",
+   "description": "Dashboard terms follow the dashboard additions proposed for the CCA profile (FAIR2Adapt WP2 working draft)."
+  },
+  {
+   "@id": "https://creativecommons.org/licenses/by/4.0/",
+   "@type": "CreativeWork",
+   "name": "CC BY 4.0"
+  },
+  {
+   "@id": "#fixture-builder",
+   "@type": "Organization",
+   "name": "Test fixture builder (synthetic object)"
+  },
+  {
+   "@id": "https://example.org/institute",
+   "@type": "Organization",
+   "name": "Example Institute",
+   "url": "https://example.org/"
+  },
+  {
+   "@id": "#var-ma",
+   "@type": "PropertyValue",
+   "name": "ma",
+   "propertyID": {
+    "@id": "https://example.org/stand-in/variable/risk_mobility_accessibility"
+   }
+  },
+  {
+   "@id": "#var-wb",
+   "@type": "PropertyValue",
+   "name": "wb",
+   "propertyID": {
+    "@id": "https://example.org/stand-in/variable/risk_wellbeing"
+   }
+  },
+  {
+   "@id": "#var-cell",
+   "@type": "PropertyValue",
+   "name": "cell",
+   "propertyID": {
+    "@id": "https://example.org/stand-in/variable/cell_id"
+   }
+  },
+  {
+   "@id": "#input-main",
+   "@type": "FormalParameter",
+   "name": "main",
+   "additionalType": "Dataset",
+   "valueRequired": true,
+   "encodingFormat": [
+    "application/flatgeobuf",
+    "application/vnd.pmtiles"
+   ],
+   "variableMeasured": [
+    {
+     "@id": "#var-ma"
+    },
+    {
+     "@id": "#var-wb"
+    }
+   ]
+  },
+  {
+   "@id": "#input-optional",
+   "@type": "FormalParameter",
+   "name": "optional",
+   "additionalType": "Dataset",
+   "valueRequired": false,
+   "encodingFormat": [
+    "application/flatgeobuf",
+    "application/vnd.pmtiles"
+   ],
+   "variableMeasured": [
+    {
+     "@id": "#var-cell"
+    }
+   ]
+  },
+  {
+   "@id": "#setting-classification",
+   "@type": "PropertyValueSpecification",
+   "valueName": "classification",
+   "defaultValue": "classBreaks"
+  },
+  {
+   "@id": "#plugin",
+   "@type": "SoftwareApplication",
+   "name": "foreign-risk-map",
+   "additionalType": "view panel",
+   "url": "https://example.org/stand-in/plugin/foreign-risk-map/panel.js",
+   "softwareVersion": "0.3.0",
+   "input": [
+    {
+     "@id": "#input-main"
+    },
+    {
+     "@id": "#input-optional"
+    }
+   ],
+   "additionalProperty": [
+    {
+     "@id": "#setting-classification"
+    }
+   ]
+  }
+ ]
+}

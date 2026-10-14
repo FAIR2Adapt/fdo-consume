@@ -1,0 +1,781 @@
+{
+ "schema": "fdo-consume-binding/5",
+ "object": {
+  "pid": "https://example.org/stand-in/hamburg-cca-profile-demo",
+  "identifier": "https://example.org/stand-in/hamburg-cca-profile-demo",
+  "crate_sha256": "4240fc93589a74f70950814d8426e8ecbadd11edda2fca646cb79ade1be57f60",
+  "name": "Hamburg urban pluvial flood risk and social vulnerability: HEALPix cell products (demo)",
+  "description": "Two public map products of the urban-pfr toolbox for Hamburg, aggregated to HEALPix equal-area cells, with the three statements of the underlying study referenced from their Knowledge Loom record. All data values and associated test metadata are synthetic.",
+  "date": "2026-10-07",
+  "licence": "https://creativecommons.org/licenses/by/4.0/",
+  "profiles": [
+   "https://w3id.org/cc-crate-profile/0.9"
+  ],
+  "map": "cca-crate-0.9",
+  "overlay": "cca-dashboard-proposal-2026-09",
+  "fields": {
+   "title": "Hamburg urban pluvial flood risk and social vulnerability: HEALPix cell products (demo)",
+   "description": "Two public map products of the urban-pfr toolbox for Hamburg, aggregated to HEALPix equal-area cells, with the three statements of the underlying study referenced from their Knowledge Loom record. All data values and associated test metadata are synthetic.",
+   "licence": "https://creativecommons.org/licenses/by/4.0/",
+   "date": "2026-10-07",
+   "identifier": "https://example.org/stand-in/hamburg-cca-profile-demo",
+   "profile": "https://w3id.org/cc-crate-profile/0.9",
+   "keywords": [],
+   "type": [],
+   "author": [
+    "Test fixture builder (synthetic object)"
+   ],
+   "status": "demo: synthetic values; no PID minted yet",
+   "access_rights": null,
+   "conditions_of_access": null,
+   "policy": null
+  },
+  "access": {
+   "state": "unknown",
+   "rights": [],
+   "conditions": [],
+   "policy": null,
+   "requires_authorization": null
+  }
+ },
+ "consumer": {
+  "contract": "cs3-map-v1",
+  "compatibility": {
+   "status": "PASS",
+   "evidence": [
+    "A7",
+    "A4"
+   ],
+   "diagnostics": []
+  }
+ },
+ "entities": [
+  {
+   "id": "#product-risk-healpix",
+   "type": "Dataset",
+   "provides": [],
+   "holders": [],
+   "pid": "https://example.org/stand-in/product/risk-healpix",
+   "profiles": [],
+   "fields": {
+    "name": "PFR risk, HEALPix equal-area cells (public)",
+    "description": "Bivariate pluvial flood risk (mobility/accessibility x well-being) per HEALPix cell.",
+    "identifier": "https://example.org/stand-in/product/risk-healpix",
+    "data_collector": null,
+    "origin": null,
+    "nature": null,
+    "scale": "#place-hamburg-extent",
+    "sensitivity": null,
+    "format": null,
+    "access_rights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
+    "conditions_of_access": "open; no registration",
+    "policy": null,
+    "spatial_box": "53.395907 9.736497 53.71725 10.312797"
+   },
+   "access": {
+    "state": "open",
+    "rights": [
+     "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    ],
+    "conditions": [
+     "open; no registration"
+    ],
+    "policy": null,
+    "requires_authorization": false
+   }
+  },
+  {
+   "id": "#product-vulnerability-healpix",
+   "type": "Dataset",
+   "provides": [],
+   "holders": [],
+   "pid": "https://example.org/stand-in/product/vulnerability-healpix",
+   "profiles": [],
+   "fields": {
+    "name": "Social vulnerability, HEALPix equal-area cells (public)",
+    "description": "Social vulnerability (SVPF, SVI) and its drivers (sensitivity, coping capacity) per HEALPix cell.",
+    "identifier": "https://example.org/stand-in/product/vulnerability-healpix",
+    "data_collector": null,
+    "origin": null,
+    "nature": null,
+    "scale": "#place-hamburg-extent",
+    "sensitivity": null,
+    "format": null,
+    "access_rights": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
+    "conditions_of_access": "open; no registration",
+    "policy": null,
+    "spatial_box": "53.395907 9.736497 53.71725 10.312797"
+   },
+   "access": {
+    "state": "open",
+    "rights": [
+     "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    ],
+    "conditions": [
+     "open; no registration"
+    ],
+    "policy": null,
+    "requires_authorization": false
+   }
+  },
+  {
+   "id": "#product-buildings-risk",
+   "type": "Dataset",
+   "provides": [],
+   "holders": [],
+   "pid": "https://example.org/stand-in/product/buildings-risk",
+   "profiles": [],
+   "fields": {
+    "name": "Buildings with risk, building level (restricted; metadata only)",
+    "description": "Building-level risk values. Not distributed in this crate: restricted, and no access route exists yet for this product.",
+    "identifier": "https://example.org/stand-in/product/buildings-risk",
+    "data_collector": null,
+    "origin": null,
+    "nature": null,
+    "scale": null,
+    "sensitivity": null,
+    "format": null,
+    "access_rights": "http://publications.europa.eu/resource/authority/access-right/RESTRICTED",
+    "conditions_of_access": "building-level data; access on request for academic research; policy not yet published",
+    "policy": null,
+    "spatial_box": null
+   },
+   "access": {
+    "state": "restricted",
+    "rights": [
+     "http://publications.europa.eu/resource/authority/access-right/RESTRICTED"
+    ],
+    "conditions": [
+     "building-level data; access on request for academic research; policy not yet published"
+    ],
+    "policy": null,
+    "requires_authorization": true
+   }
+  },
+  {
+   "id": "#var-PFRMA_smoothed",
+   "type": "Variable",
+   "provides": [],
+   "holders": [
+    "#product-risk-healpix",
+    "#product-buildings-risk"
+   ],
+   "pid": null,
+   "profiles": [],
+   "fields": {
+    "name": "PFRMA_smoothed",
+    "url": null,
+    "property_id": "https://example.org/stand-in/variable/risk_mobility_accessibility",
+    "unit_code": "http://qudt.org/vocab/unit/UNITLESS",
+    "unit_text": "index 0-1",
+    "description": "pluvial flood risk, mobility and accessibility (smoothed index)"
+   },
+   "access": {
+    "state": "open",
+    "rights": [
+     "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    ],
+    "conditions": [
+     "open; no registration"
+    ],
+    "policy": null,
+    "requires_authorization": false
+   }
+  },
+  {
+   "id": "#var-PFRWB_smoothed",
+   "type": "Variable",
+   "provides": [],
+   "holders": [
+    "#product-risk-healpix",
+    "#product-buildings-risk"
+   ],
+   "pid": null,
+   "profiles": [],
+   "fields": {
+    "name": "PFRWB_smoothed",
+    "url": null,
+    "property_id": "https://example.org/stand-in/variable/risk_wellbeing",
+    "unit_code": "http://qudt.org/vocab/unit/UNITLESS",
+    "unit_text": "index 0-1",
+    "description": "pluvial flood risk, well-being (smoothed index)"
+   },
+   "access": {
+    "state": "open",
+    "rights": [
+     "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    ],
+    "conditions": [
+     "open; no registration"
+    ],
+    "policy": null,
+    "requires_authorization": false
+   }
+  },
+  {
+   "id": "#var-HMA",
+   "type": "Variable",
+   "provides": [],
+   "holders": [
+    "#product-risk-healpix"
+   ],
+   "pid": null,
+   "profiles": [],
+   "fields": {
+    "name": "HMA",
+    "url": null,
+    "property_id": "https://example.org/stand-in/variable/hazard_mobility_accessibility",
+    "unit_code": "http://qudt.org/vocab/unit/UNITLESS",
+    "unit_text": "index 0-1",
+    "description": "hazard index, mobility and accessibility"
+   },
+   "access": {
+    "state": "open",
+    "rights": [
+     "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    ],
+    "conditions": [
+     "open; no registration"
+    ],
+    "policy": null,
+    "requires_authorization": false
+   }
+  },
+  {
+   "id": "#var-HWB",
+   "type": "Variable",
+   "provides": [],
+   "holders": [
+    "#product-risk-healpix"
+   ],
+   "pid": null,
+   "profiles": [],
+   "fields": {
+    "name": "HWB",
+    "url": null,
+    "property_id": "https://example.org/stand-in/variable/hazard_wellbeing",
+    "unit_code": "http://qudt.org/vocab/unit/UNITLESS",
+    "unit_text": "index 0-1",
+    "description": "hazard index, well-being"
+   },
+   "access": {
+    "state": "open",
+    "rights": [
+     "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    ],
+    "conditions": [
+     "open; no registration"
+    ],
+    "policy": null,
+    "requires_authorization": false
+   }
+  },
+  {
+   "id": "#var-healpix_id",
+   "type": "Variable",
+   "provides": [],
+   "holders": [
+    "#product-risk-healpix",
+    "#product-vulnerability-healpix"
+   ],
+   "pid": null,
+   "profiles": [],
+   "fields": {
+    "name": "healpix_id",
+    "url": null,
+    "property_id": "https://example.org/stand-in/variable/cell_id",
+    "unit_code": "http://qudt.org/vocab/unit/NUM",
+    "unit_text": "cell id",
+    "description": "HEALPix cell identifier (depth 15)"
+   },
+   "access": {
+    "state": "open",
+    "rights": [
+     "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    ],
+    "conditions": [
+     "open; no registration"
+    ],
+    "policy": null,
+    "requires_authorization": false
+   }
+  },
+  {
+   "id": "#var-n_buildings",
+   "type": "Variable",
+   "provides": [],
+   "holders": [
+    "#product-risk-healpix",
+    "#product-vulnerability-healpix"
+   ],
+   "pid": null,
+   "profiles": [],
+   "fields": {
+    "name": "n_buildings",
+    "url": null,
+    "property_id": "https://example.org/stand-in/variable/aggregation_count",
+    "unit_code": "http://qudt.org/vocab/unit/NUM",
+    "unit_text": "count",
+    "description": "number of buildings aggregated into the cell"
+   },
+   "access": {
+    "state": "open",
+    "rights": [
+     "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    ],
+    "conditions": [
+     "open; no registration"
+    ],
+    "policy": null,
+    "requires_authorization": false
+   }
+  },
+  {
+   "id": "#var-SVPF",
+   "type": "Variable",
+   "provides": [],
+   "holders": [
+    "#product-vulnerability-healpix"
+   ],
+   "pid": null,
+   "profiles": [],
+   "fields": {
+    "name": "SVPF",
+    "url": null,
+    "property_id": "https://example.org/stand-in/variable/social_vulnerability",
+    "unit_code": "http://qudt.org/vocab/unit/UNITLESS",
+    "unit_text": "score 0-1",
+    "description": "social vulnerability to pluvial flooding (TOPSIS score)"
+   },
+   "access": {
+    "state": "open",
+    "rights": [
+     "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    ],
+    "conditions": [
+     "open; no registration"
+    ],
+    "policy": null,
+    "requires_authorization": false
+   }
+  },
+  {
+   "id": "#var-SVI",
+   "type": "Variable",
+   "provides": [],
+   "holders": [
+    "#product-vulnerability-healpix"
+   ],
+   "pid": null,
+   "profiles": [],
+   "fields": {
+    "name": "SVI",
+    "url": null,
+    "property_id": "https://example.org/stand-in/variable/svi",
+    "unit_code": "http://qudt.org/vocab/unit/UNITLESS",
+    "unit_text": "index 0-1",
+    "description": "social vulnerability index"
+   },
+   "access": {
+    "state": "open",
+    "rights": [
+     "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    ],
+    "conditions": [
+     "open; no registration"
+    ],
+    "policy": null,
+    "requires_authorization": false
+   }
+  },
+  {
+   "id": "#var-Sensitivity",
+   "type": "Variable",
+   "provides": [],
+   "holders": [
+    "#product-vulnerability-healpix"
+   ],
+   "pid": null,
+   "profiles": [],
+   "fields": {
+    "name": "Sensitivity",
+    "url": null,
+    "property_id": "https://example.org/stand-in/variable/sensitivity",
+    "unit_code": "http://qudt.org/vocab/unit/UNITLESS",
+    "unit_text": "index 0-1",
+    "description": "sensitivity driver of vulnerability"
+   },
+   "access": {
+    "state": "open",
+    "rights": [
+     "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    ],
+    "conditions": [
+     "open; no registration"
+    ],
+    "policy": null,
+    "requires_authorization": false
+   }
+  },
+  {
+   "id": "#var-CopingCapacity",
+   "type": "Variable",
+   "provides": [],
+   "holders": [
+    "#product-vulnerability-healpix"
+   ],
+   "pid": null,
+   "profiles": [],
+   "fields": {
+    "name": "CopingCapacity",
+    "url": null,
+    "property_id": "https://example.org/stand-in/variable/coping_capacity",
+    "unit_code": "http://qudt.org/vocab/unit/UNITLESS",
+    "unit_text": "index 0-1",
+    "description": "coping-capacity driver of vulnerability"
+   },
+   "access": {
+    "state": "open",
+    "rights": [
+     "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    ],
+    "conditions": [
+     "open; no registration"
+    ],
+    "policy": null,
+    "requires_authorization": false
+   }
+  },
+  {
+   "id": "knowledge/#e5b60d07-c048-4f7d-b7c6-9bae9083c7ad",
+   "type": "Claim",
+   "provides": [
+    "Assertion"
+   ],
+   "holders": [
+    "./"
+   ],
+   "pid": null,
+   "profiles": [],
+   "fields": {
+    "text": "Synthetic test statement 1 for the Hamburg demo run (not a finding).",
+    "record": "knowledge/",
+    "about": "#product-risk-healpix",
+    "record_profiles": [
+     "https://knowledgeloom.science/profile/record/0.1.0"
+    ]
+   },
+   "access": {
+    "state": "unknown",
+    "rights": [],
+    "conditions": [],
+    "policy": null,
+    "requires_authorization": null
+   }
+  },
+  {
+   "id": "knowledge/#c5e8f5df-c589-4dd0-897d-61c215ef2fbd",
+   "type": "Claim",
+   "provides": [
+    "Assertion"
+   ],
+   "holders": [
+    "./"
+   ],
+   "pid": null,
+   "profiles": [],
+   "fields": {
+    "text": "Synthetic test statement 2 for the Hamburg demo run (not a finding).",
+    "record": "knowledge/",
+    "about": "#product-vulnerability-healpix",
+    "record_profiles": [
+     "https://knowledgeloom.science/profile/record/0.1.0"
+    ]
+   },
+   "access": {
+    "state": "unknown",
+    "rights": [],
+    "conditions": [],
+    "policy": null,
+    "requires_authorization": null
+   }
+  },
+  {
+   "id": "knowledge/#dd84f7ed-6079-4760-8c13-d6d502df127a",
+   "type": "Claim",
+   "provides": [
+    "Assertion"
+   ],
+   "holders": [
+    "./"
+   ],
+   "pid": null,
+   "profiles": [],
+   "fields": {
+    "text": "Synthetic test statement 3 for the Hamburg demo run (not a finding).",
+    "record": "knowledge/",
+    "about": "#product-vulnerability-healpix",
+    "record_profiles": [
+     "https://knowledgeloom.science/profile/record/0.1.0"
+    ]
+   },
+   "access": {
+    "state": "unknown",
+    "rights": [],
+    "conditions": [],
+    "policy": null,
+    "requires_authorization": null
+   }
+  },
+  {
+   "id": "#spatial-structure-healpix",
+   "type": "Property",
+   "provides": [],
+   "holders": [
+    "#product-risk-healpix",
+    "#product-vulnerability-healpix"
+   ],
+   "pid": null,
+   "profiles": [],
+   "fields": {
+    "name": "spatialStructure",
+    "value": "discrete global grid (HEALPix)"
+   },
+   "access": {
+    "state": "open",
+    "rights": [
+     "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    ],
+    "conditions": [
+     "open; no registration"
+    ],
+    "policy": null,
+    "requires_authorization": false
+   }
+  },
+  {
+   "id": "#spatial-structure-parameters",
+   "type": "Property",
+   "provides": [],
+   "holders": [
+    "#product-risk-healpix",
+    "#product-vulnerability-healpix"
+   ],
+   "pid": null,
+   "profiles": [],
+   "fields": {
+    "name": "spatialStructureParameters",
+    "value": "healpix_depth=15; crs=EPSG:4326; geometry=Polygon; cells=9654"
+   },
+   "access": {
+    "state": "open",
+    "rights": [
+     "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    ],
+    "conditions": [
+     "open; no registration"
+    ],
+    "policy": null,
+    "requires_authorization": false
+   }
+  },
+  {
+   "id": "#classification-risk-healpix",
+   "type": "Property",
+   "provides": [],
+   "holders": [
+    "#product-risk-healpix"
+   ],
+   "pid": null,
+   "profiles": [],
+   "fields": {
+    "name": "classBreaks",
+    "value": "{\"method\": \"positive-quantile P80/P95/P99 (zeros are class 0)\", \"thresholdStatus\": \"provisional_pending_scientific_validation\", \"breaks_ma\": [0.00010378, 0.00204298, 0.01484779], \"breaks_wb\": [1.508e-05, 0.00028887, 0.00188574]}"
+   },
+   "access": {
+    "state": "open",
+    "rights": [
+     "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    ],
+    "conditions": [
+     "open; no registration"
+    ],
+    "policy": null,
+    "requires_authorization": false
+   }
+  },
+  {
+   "id": "#classification-vulnerability-healpix",
+   "type": "Property",
+   "provides": [],
+   "holders": [
+    "#product-vulnerability-healpix"
+   ],
+   "pid": null,
+   "profiles": [],
+   "fields": {
+    "name": "classBreaks",
+    "value": "{\"method\": \"positive-quantile (SVPF quartiles; drivers tertiles)\", \"thresholdStatus\": \"provisional_pending_scientific_validation\", \"breaks_sv\": [0.07312998, 0.10579889, 0.15567288], \"breaks_sensitivity\": [0.31356206, 0.42243667], \"breaks_coping\": [0.11935032, 0.19585793]}"
+   },
+   "access": {
+    "state": "open",
+    "rights": [
+     "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    ],
+    "conditions": [
+     "open; no registration"
+    ],
+    "policy": null,
+    "requires_authorization": false
+   }
+  }
+ ],
+ "resources": [
+  {
+   "id": "public/risk_healpix.fgb",
+   "type": "Distribution",
+   "holders": [
+    "#product-risk-healpix"
+   ],
+   "pid": null,
+   "url": "in-crate:public/risk_healpix.fgb",
+   "in_crate": true,
+   "media_type": "application/flatgeobuf",
+   "media_type_source": "declared",
+   "declared_media_type": "application/flatgeobuf",
+   "size": 2498632,
+   "checksum": "9dada2fc60aa410f68c8ed5a0ff7eb400e22d17f3671ee3160efc03696258ffe",
+   "payload": true,
+   "why_not_payload": null,
+   "access": {
+    "state": "open",
+    "rights": [
+     "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    ],
+    "conditions": [
+     "open; no registration"
+    ],
+    "policy": null,
+    "requires_authorization": false
+   },
+   "accepted": true
+  },
+  {
+   "id": "public/risk_healpix.pmtiles",
+   "type": "Distribution",
+   "holders": [
+    "#product-risk-healpix"
+   ],
+   "pid": null,
+   "url": "in-crate:public/risk_healpix.pmtiles",
+   "in_crate": true,
+   "media_type": "application/vnd.pmtiles",
+   "media_type_source": "declared",
+   "declared_media_type": "application/vnd.pmtiles",
+   "size": 6580120,
+   "checksum": "fb25f49bed85158fd2a44e6a135e271768c5243791e45870004e8f733324f0b8",
+   "payload": true,
+   "why_not_payload": null,
+   "access": {
+    "state": "open",
+    "rights": [
+     "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    ],
+    "conditions": [
+     "open; no registration"
+    ],
+    "policy": null,
+    "requires_authorization": false
+   },
+   "accepted": true
+  },
+  {
+   "id": "public/vulnerability_healpix.fgb",
+   "type": "Distribution",
+   "holders": [
+    "#product-vulnerability-healpix"
+   ],
+   "pid": null,
+   "url": "in-crate:public/vulnerability_healpix.fgb",
+   "in_crate": true,
+   "media_type": "application/flatgeobuf",
+   "media_type_source": "declared",
+   "declared_media_type": "application/flatgeobuf",
+   "size": 2266888,
+   "checksum": "25760d41d8be22525469e703c8c227665bff116972228ac1d159b1bc02accc11",
+   "payload": true,
+   "why_not_payload": null,
+   "access": {
+    "state": "open",
+    "rights": [
+     "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    ],
+    "conditions": [
+     "open; no registration"
+    ],
+    "policy": null,
+    "requires_authorization": false
+   },
+   "accepted": true
+  },
+  {
+   "id": "public/vulnerability_healpix.pmtiles",
+   "type": "Distribution",
+   "holders": [
+    "#product-vulnerability-healpix"
+   ],
+   "pid": null,
+   "url": "in-crate:public/vulnerability_healpix.pmtiles",
+   "in_crate": true,
+   "media_type": "application/vnd.pmtiles",
+   "media_type_source": "declared",
+   "declared_media_type": "application/vnd.pmtiles",
+   "size": 6047782,
+   "checksum": "8c1db26be0ad92cef2928dc12f4075525d05a996f47a1d26e1eefd797b1ec87c",
+   "payload": true,
+   "why_not_payload": null,
+   "access": {
+    "state": "open",
+    "rights": [
+     "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+    ],
+    "conditions": [
+     "open; no registration"
+    ],
+    "policy": null,
+    "requires_authorization": false
+   },
+   "accepted": true
+  }
+ ],
+ "selected": [
+  "public/risk_healpix.fgb"
+ ],
+ "related": [
+  {
+   "id": "knowledge/",
+   "name": "Knowledge Loom record of the Hamburg demo run (asserting record of the claims)",
+   "profiles": [
+    "https://knowledgeloom.science/profile/record/0.1.0"
+   ],
+   "has_map": true
+  }
+ ],
+ "evidence": {
+  "statuses": {
+   "resolution": "PASS",
+   "validation": "PARTIAL",
+   "compatibility": "PASS",
+   "delivery": "PASS"
+  },
+  "inference_used": [],
+  "shape_hints": [],
+  "steps": [
+   {
+    "id": "V0",
+    "status": "PARTIAL",
+    "detail": "should absent: Dataset #product-risk-healpix: data_collector; Dataset #product-risk-healpix: origin; Dataset #product-risk-healpix: nature; Dataset #product-risk-healpix: sensitivity; Dataset #produc…"
+   }
+  ]
+ }
+}

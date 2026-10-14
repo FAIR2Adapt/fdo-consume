@@ -1,0 +1,104 @@
+{
+ "@context": [
+  "https://w3id.org/ro/crate/1.2/context",
+  {
+   "hasClaim": "https://schema.org/hasClaim",
+   "isReferencedBy": "http://purl.org/dc/terms/isReferencedBy"
+  }
+ ],
+ "@graph": [
+  {
+   "@id": "ro-crate-metadata.json",
+   "@type": "CreativeWork",
+   "conformsTo": {
+    "@id": "https://w3id.org/ro/crate/1.2"
+   },
+   "about": {
+    "@id": "./"
+   }
+  },
+  {
+   "@id": "./",
+   "@type": "Dataset",
+   "identifier": "https://example.org/stand-in/hamburg-policy-brief",
+   "name": "Hamburg demo policy brief (synthetic)",
+   "description": "A synthetic policy brief that summarises, for a city council, what the synthetic flood-risk study found and which measures it supports. Written only to test software.",
+   "datePublished": "2026-09-30",
+   "license": {
+    "@id": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   "conformsTo": {
+    "@id": "https://w3id.org/cc-crate-profile/0.9"
+   },
+   "keywords": [
+    "pluvial flood",
+    "adaptation",
+    "municipal planning"
+   ],
+   "additionalType": "policy document",
+   "inLanguage": "en",
+   "author": [
+    {
+     "@id": "#example-author-a"
+    },
+    {
+     "@id": "#example-author-b"
+    }
+   ],
+   "hasPart": [
+    {
+     "@id": "brief.pdf"
+    }
+   ],
+   "hasClaim": [
+    {
+     "@id": "#claim-1"
+    }
+   ]
+  },
+  {
+   "@id": "brief.pdf",
+   "@type": "File",
+   "name": "Policy brief (synthetic)",
+   "encodingFormat": "application/pdf",
+   "contentSize": "0",
+   "description": "Placeholder: the file is not part of the fixture."
+  },
+  {
+   "@id": "#claim-1",
+   "@type": "Claim",
+   "text": "Synthetic claim: in the example city, the risk to mobility and well-being is highest in the eastern districts.",
+   "isReferencedBy": {
+    "@id": "https://example.org/stand-in/hamburg-loom-record"
+   }
+  },
+  {
+   "@id": "#example-author-a",
+   "@type": "Person",
+   "name": "Example Author A"
+  },
+  {
+   "@id": "#example-author-b",
+   "@type": "Person",
+   "name": "Example Author B"
+  },
+  {
+   "@id": "https://w3id.org/cc-crate-profile/0.9",
+   "@type": [
+    "CreativeWork",
+    "Profile"
+   ],
+   "name": "CCA-Crate profile 0.9 (IRI as the profile text names it)"
+  },
+  {
+   "@id": "https://creativecommons.org/licenses/by/4.0/",
+   "@type": "CreativeWork",
+   "name": "CC BY 4.0"
+  },
+  {
+   "@id": "#fixture-builder",
+   "@type": "Organization",
+   "name": "Test fixture builder (synthetic object)"
+  }
+ ]
+}

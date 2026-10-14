@@ -1,0 +1,5 @@
+# sha256 of each test crate; a test checks this list, update it when a crate changes
+hamburg-cca-profile-demo 63e55e9caa20dcd4258f42f56ea6abba6382c237f572407c4265b371b034a154
+hamburg-cca-spelling-b dd80f2c96564738b8ec60cda314ea722180043688b43e8ed184c408e04a0eeac
+hamburg-legacy-loom 3f08e9d7c69d29e0fe1ace82e966caba9959ebff6d0e03b997ac362a07a31cec
+hamburg-loom-record 9bbd1c397617a424dd99f4e5e80cd4945d7531e94681262cbb0f005fb750015f

@@ -1,0 +1,216 @@
+{
+ "@context": [
+  "https://w3id.org/ro/crate/1.2/context",
+  {
+   "input": "https://bioschemas.org/properties/input",
+   "FormalParameter": "https://bioschemas.org/FormalParameter",
+   "valueRequired": "https://schema.org/valueRequired",
+   "valueName": "https://schema.org/valueName",
+   "defaultValue": "https://schema.org/defaultValue",
+   "softwareVersion": "https://schema.org/softwareVersion",
+   "WebPageElement": "https://schema.org/WebPageElement",
+   "PropertyValueSpecification": "https://schema.org/PropertyValueSpecification",
+   "instrument": "https://schema.org/instrument",
+   "object": "https://schema.org/object",
+   "position": "https://schema.org/position"
+  }
+ ],
+ "@graph": [
+  {
+   "@id": "ro-crate-metadata.json",
+   "@type": "CreativeWork",
+   "conformsTo": {
+    "@id": "https://w3id.org/ro/crate/1.2"
+   },
+   "about": {
+    "@id": "./"
+   }
+  },
+  {
+   "@id": "./",
+   "@type": "Dataset",
+   "name": "Dashboard plugin: bivariate-risk-map (synthetic)",
+   "description": "A view panel that draws bivariate risk map. Synthetic test object used for software validation.",
+   "identifier": "https://example.org/stand-in/plugin/bivariate-risk-map",
+   "datePublished": "2026-10-13",
+   "license": {
+    "@id": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   "author": {
+    "@id": "#fixture-builder"
+   },
+   "publisher": {
+    "@id": "https://example.org/institute"
+   },
+   "conformsTo": {
+    "@id": "https://w3id.org/cca-crate-profile/0.9"
+   },
+   "mainEntity": {
+    "@id": "#plugin"
+   },
+   "creativeWorkStatus": "demo: synthetic; no PID minted yet"
+  },
+  {
+   "@id": "https://w3id.org/cca-crate-profile/0.9",
+   "@type": [
+    "CreativeWork",
+    "Profile"
+   ],
+   "name": "CCA-Crate profile 0.9 (test object)",
+   "description": "Dashboard terms follow the dashboard additions proposed for the CCA profile (FAIR2Adapt WP2 working draft)."
+  },
+  {
+   "@id": "https://creativecommons.org/licenses/by/4.0/",
+   "@type": "CreativeWork",
+   "name": "CC BY 4.0"
+  },
+  {
+   "@id": "#fixture-builder",
+   "@type": "Organization",
+   "name": "Test fixture builder (synthetic object)"
+  },
+  {
+   "@id": "https://example.org/institute",
+   "@type": "Organization",
+   "name": "Example Institute",
+   "url": "https://example.org/"
+  },
+  {
+   "@id": "#var-risk_mobility_accessibility",
+   "@type": "PropertyValue",
+   "name": "risk_mobility_accessibility",
+   "propertyID": {
+    "@id": "https://example.org/stand-in/variable/risk_mobility_accessibility"
+   }
+  },
+  {
+   "@id": "#var-risk_wellbeing",
+   "@type": "PropertyValue",
+   "name": "risk_wellbeing",
+   "propertyID": {
+    "@id": "https://example.org/stand-in/variable/risk_wellbeing"
+   }
+  },
+  {
+   "@id": "#var-hazard_mobility_accessibility",
+   "@type": "PropertyValue",
+   "name": "hazard_mobility_accessibility",
+   "propertyID": {
+    "@id": "https://example.org/stand-in/variable/hazard_mobility_accessibility"
+   }
+  },
+  {
+   "@id": "#var-hazard_wellbeing",
+   "@type": "PropertyValue",
+   "name": "hazard_wellbeing",
+   "propertyID": {
+    "@id": "https://example.org/stand-in/variable/hazard_wellbeing"
+   }
+  },
+  {
+   "@id": "#var-cell_id",
+   "@type": "PropertyValue",
+   "name": "cell_id",
+   "propertyID": {
+    "@id": "https://example.org/stand-in/variable/cell_id"
+   }
+  },
+  {
+   "@id": "#var-aggregation_count",
+   "@type": "PropertyValue",
+   "name": "aggregation_count",
+   "propertyID": {
+    "@id": "https://example.org/stand-in/variable/aggregation_count"
+   }
+  },
+  {
+   "@id": "#input-main",
+   "@type": "FormalParameter",
+   "name": "main",
+   "additionalType": "Dataset",
+   "valueRequired": true,
+   "encodingFormat": [
+    "application/flatgeobuf",
+    "application/vnd.pmtiles"
+   ],
+   "variableMeasured": [
+    {
+     "@id": "#var-risk_mobility_accessibility"
+    },
+    {
+     "@id": "#var-risk_wellbeing"
+    }
+   ],
+   "conformsTo": {
+    "@id": "https://example.org/stand-in/shape/map-input"
+   }
+  },
+  {
+   "@id": "#input-optional",
+   "@type": "FormalParameter",
+   "name": "optional",
+   "additionalType": "Dataset",
+   "valueRequired": false,
+   "encodingFormat": [
+    "application/flatgeobuf",
+    "application/vnd.pmtiles"
+   ],
+   "variableMeasured": [
+    {
+     "@id": "#var-hazard_mobility_accessibility"
+    },
+    {
+     "@id": "#var-hazard_wellbeing"
+    },
+    {
+     "@id": "#var-cell_id"
+    },
+    {
+     "@id": "#var-aggregation_count"
+    }
+   ],
+   "conformsTo": {
+    "@id": "https://example.org/stand-in/shape/map-input"
+   }
+  },
+  {
+   "@id": "#setting-classification",
+   "@type": "PropertyValueSpecification",
+   "valueName": "classification",
+   "defaultValue": "classBreaks",
+   "description": "setting classification of bivariate-risk-map"
+  },
+  {
+   "@id": "#setting-colorScheme",
+   "@type": "PropertyValueSpecification",
+   "valueName": "colorScheme",
+   "defaultValue": "yellow-purple",
+   "description": "setting colorScheme of bivariate-risk-map"
+  },
+  {
+   "@id": "#plugin",
+   "@type": "SoftwareApplication",
+   "name": "bivariate-risk-map",
+   "additionalType": "view panel",
+   "url": "https://example.org/stand-in/plugin/bivariate-risk-map/panel.js",
+   "softwareVersion": "1.0.0",
+   "softwareRequirements": "composer-interface 0.1",
+   "input": [
+    {
+     "@id": "#input-main"
+    },
+    {
+     "@id": "#input-optional"
+    }
+   ],
+   "additionalProperty": [
+    {
+     "@id": "#setting-classification"
+    },
+    {
+     "@id": "#setting-colorScheme"
+    }
+   ]
+  }
+ ]
+}
