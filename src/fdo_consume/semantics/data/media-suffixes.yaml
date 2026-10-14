@@ -1,0 +1,18 @@
+source: "URL suffix to media type table; a media type read from a suffix is recorded as inferred, never as declared"
+generic_declared:
+  - text/plain
+  - application/octet-stream
+suffixes:
+  .fgb: application/vnd.flatgeobuf
+  .geojson: application/geo+json
+  .gpkg: application/geopackage+sqlite3
+  .pmtiles: application/vnd.pmtiles
+  .parquet: application/vnd.apache.parquet
+  .csv: text/csv
+  .nc: application/x-netcdf
+  .zarr: application/vnd+zarr
+  .tif: image/tiff
+  .tiff: image/tiff
+  .png: image/png
+  .pdf: application/pdf
+  .json: application/json

@@ -126,7 +126,7 @@ def _value(graph: CanonicalGraph, node: str, entry: dict):
 
 
 def _related(graph: CanonicalGraph, root: str) -> list[dict]:
-    """Datasets the root holds that declare another profile: records of their own, never merged."""
+    """Return the root's datasets that declare a profile of their own; such records are kept separate from this description."""
     mine = {_text(v) for v in graph.values(root, CONFORMS)}
     found = []
     for ref in graph.values(root, HAS_PART):
@@ -303,7 +303,7 @@ def _broken_rule(graph: CanonicalGraph, root: str, spec: dict, rule: dict, entit
 
 
 def _levels_step(must: list[str], should: list[str]) -> Step:
-    """V0: presence of the map's terms by level; built in, not the profile's own validator."""
+    """Check term presence by level from the profile map: a consumer-side structural check, not authoritative profile-conformance validation."""
     if not must and not should:
         return Step("validate", "V0", "levels_present", PASS, "every term of the map is stated")
     parts = []

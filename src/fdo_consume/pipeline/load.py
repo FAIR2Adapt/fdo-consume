@@ -7,7 +7,6 @@ from ..loaders.binding import build_binding
 from .context import Context
 
 
-# TODO: grant flow for restricted files
 def load(ctx: Context) -> None:
     """A9: deliver the selected part; a restricted part stays a reference."""
     part = ctx.selected

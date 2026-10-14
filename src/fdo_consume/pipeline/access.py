@@ -101,7 +101,7 @@ def _check_request(ctx: Context, contract: object, depth: str, depths: list[str]
     if contract is not None:
         ctx.spec = load_contract(contract, ctx.options.get("contracts"), ctx.options.get("profile_maps"))
         ctx.record.contract_id = plain(ctx.spec.get("contract_id"))
-        # hash the content, not just the id
+        # Hash the content so a change at the same contract id is detectable.
         ctx.record.contract_sha256 = hashlib.sha256(bytes(json.dumps(plain(ctx.spec), sort_keys=True, ensure_ascii=False), "utf-8")).hexdigest()
         _check_adapters_named(ctx.spec)
     if want not in WANTS:

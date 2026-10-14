@@ -10,7 +10,6 @@ def wants_reference(part: Part, want: str) -> bool:
     return want == "reference"
 
 
-# TODO: lazy loaders for large data
 @register("loader", "reference", match=wants_reference)
 def load_reference(part: Part) -> Loaded:
     """The part as a reference; a restricted part needs a grant."""

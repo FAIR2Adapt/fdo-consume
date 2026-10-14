@@ -1,7 +1,4 @@
-"""Compatibility fallback describer "ro-crate" for objects read without a profile map.
-
-Remove when the ro-crate map path passes the fallback tests (root checks, identifiers, part limits, URL safety).
-"""
+"""Compatibility RO-Crate describer used when no profile map applies."""
 from __future__ import annotations
 
 import ipaddress
@@ -40,7 +37,6 @@ def is_json_object(located: Located) -> bool:
     return isinstance(located.crate, dict)
 
 
-# TODO: ROHub research objects (folders, nesting) need real samples
 @register("describer", "ro-crate", match=is_json_object)
 def describe_ro_crate(located: Located) -> Descriptor:
     """Read the root entity, its parts and its members."""

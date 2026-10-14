@@ -2,27 +2,20 @@ __pycache__/
 *.pyc
 build/
 *.egg-info/
+.venv/
 # Environment variables
 .env
 .env.*
-
-# Python
-__pycache__/
-*.pyc
-.venv/
-
 # IDE
 .idea/
 .vscode/
-
 # Temporary files
 *.log
 *.tmp
-
-
-/private-maps/
+# local only: tests, examples, notes and private maps stay out of the repository
 /tests/
 /examples/
-src/fdo_consume/contracts/examples/
-src/fdo-consume/fixtures
-src/fdo-consume/semantics/data/
+/docs/
+/private-maps/
+*.md
+!README.md

@@ -1,0 +1,10 @@
+source: "hosts of resolvers and record pages that return a web page, not the file"
+hosts:
+  - {host: doi.org, reason: "a DOI resolver answers with a landing page"}
+  - {host: www.doi.org, reason: "a DOI resolver answers with a landing page"}
+  - {host: dx.doi.org, reason: "a DOI resolver answers with a landing page"}
+  - {host: hdl.handle.net, reason: "a Handle resolver answers with a landing page"}
+  - {host: handle.net, reason: "a Handle resolver answers with a landing page"}
+host_paths:
+  - {host: zenodo.org, path_regex: "^/(records?)/[0-9]+/?$", reason: "a Zenodo record page, not a file (files are under /files/)"}
+  - {host: www.zenodo.org, path_regex: "^/(records?)/[0-9]+/?$", reason: "a Zenodo record page, not a file (files are under /files/)"}
