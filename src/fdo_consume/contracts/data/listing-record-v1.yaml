@@ -1,0 +1,39 @@
+contract_id: listing-record-v1
+version: 1
+consumer:
+  service: "knowledge-listing dashboard (repository knowledge-listing): a list of the FDOs of one collection and a page per resource"
+  capability: "show one member as a row of the list and as a resource page: title, description, date, licence, type, keywords, authors"
+source:
+  repository: "knowledge-listing"
+  path: "frontend/app.js"
+  symbol: "drawList; drawResource"
+  reviewed: "2026-10-10"
+needs:
+  - term: title
+    level: must
+    source: "schema.org name"
+    reason: "Required to head a row and a resource page; a member without a title is listed as not usable."
+  - term: description
+    level: should
+    source: "frontend/app.js drawList: the description line of a row"
+    reason: "Used to describe the resource in the row and on the page."
+  - term: date
+    level: should
+    source: "schema.org datePublished; facet Year"
+    reason: "Used for the date column and the year filter."
+  - term: licence
+    level: should
+    source: "schema.org license"
+    reason: "Used to state the terms of reuse."
+  - term: type
+    level: should
+    source: "schema.org additionalType; counts by type"
+    reason: "Used to count and filter by resource type; a member without one is listed as untyped."
+  - term: keywords
+    level: should
+    source: "schema.org keywords; facet Keywords"
+    reason: "Used by the keyword filter; a member without keywords matches no keyword filter."
+  - term: author
+    level: should
+    source: "schema.org author or publisher"
+    reason: "Used to name the creators of the resource."

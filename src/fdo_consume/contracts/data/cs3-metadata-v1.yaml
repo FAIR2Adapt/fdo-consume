@@ -1,0 +1,31 @@
+contract_id: cs3-metadata-v1
+version: 1
+consumer:
+  service: "CS3 urban pluvial flood dashboard (repository cs3-dashboard)"
+  capability: "head the page and fill the metadata panel: title, description, licence, date, authors"
+source:
+  repository: "urban-pfr-dashboard"
+  path: "frontend/js/ui/metadataPanel.js; backend/services/rocrate_output_mapper.py"
+  symbol: "renderMetadata; validate_dashboard_dataset"
+  reviewed: "2026-10-09"
+needs:
+  - term: title
+    level: must
+    source: "rocrate_output_mapper.py validate_dashboard_dataset: 'metadata.title is missing' stops the dataset"
+    reason: "Required to head the page and the metadata panel."
+  - term: description
+    level: should
+    source: "metadataPanel.js renderMetadata: the description paragraph"
+    reason: "Used in the metadata panel."
+  - term: licence
+    level: should
+    source: "metadataPanel.js renderMetadata: row 'License'"
+    reason: "Used in the metadata panel to state the terms of reuse."
+  - term: date
+    level: should
+    source: "metadataPanel.js renderMetadata: row 'Published'"
+    reason: "Used in the metadata panel."
+  - term: author
+    level: should
+    source: "metadataPanel.js renderMetadata: section 'Authors'"
+    reason: "Used in the metadata panel."

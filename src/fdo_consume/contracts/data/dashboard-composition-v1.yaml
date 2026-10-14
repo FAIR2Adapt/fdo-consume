@@ -1,0 +1,20 @@
+contract_id: dashboard-composition-v1
+version: 1
+consumer:
+  service: "dashboard composer"
+  capability: "read the panels of a Dashboard FDO: plugin, object, settings, position"
+source:
+  repository: "urban-pfr-dashboard"
+  path: "backend/composer/composer.py"
+  symbol: "compose"
+  reviewed: "2026-10-13"
+profile_additions: cca-dashboard-proposal-2026-09
+needs:
+  - term: Dashboard
+    level: must
+    source: "proposal, Dashboard table: the composition entity, reached from the root by mainEntity"
+    reason: "Required to identify the dashboard composition."
+  - term: Panel
+    level: must
+    source: "proposal, Dashboard table: hasPart of the dashboard; typed WebPageElement by the consumer"
+    reason: "Required to enumerate the panels of the dashboard composition."

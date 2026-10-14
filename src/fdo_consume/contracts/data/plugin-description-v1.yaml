@@ -1,0 +1,20 @@
+contract_id: plugin-description-v1
+version: 1
+consumer:
+  service: "dashboard composer"
+  capability: "read what a Dashboard Plugin FDO accepts: inputs, their variables and formats, settings"
+source:
+  repository: "urban-pfr-dashboard"
+  path: "backend/composer/composer.py"
+  symbol: "compose"
+  reviewed: "2026-10-13"
+profile_additions: cca-dashboard-proposal-2026-09
+needs:
+  - term: Plugin
+    level: must
+    source: "proposal, Dashboard Plugin table: the SoftwareApplication reached from the root by mainEntity"
+    reason: "Required to resolve the renderer registered for the plugin."
+  - term: Input
+    level: should
+    source: "proposal, Dashboard Plugin table: FormalParameter under input"
+    reason: "Used to bind plugin input requirements to target entities; optional for plugins without inputs."
