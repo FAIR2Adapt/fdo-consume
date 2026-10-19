@@ -1,0 +1,19 @@
+# Example contract: a map panel that needs only terms of the bundled maps.
+contract_id: my-map-panel-v1
+version: 1
+consumer:
+  service: "my dashboard (example)"
+  capability: "draw one map layer and name its licence"
+accepts:
+  - application/vnd.pmtiles
+  - application/geo+json
+needs:
+  - term: title
+    level: must
+    reason: "the page is headed with the title"
+  - term: licence
+    level: should
+    reason: "the map shows its licence"
+  - term: Variable
+    level: should
+    reason: "cells are coloured by one variable"

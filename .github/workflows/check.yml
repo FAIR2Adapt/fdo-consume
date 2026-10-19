@@ -4,12 +4,16 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     strategy:
       matrix:
-        python-version: ["3.10", "3.12"]
+        python-version: ["3.10", "3.12", "3.13"]
 
     steps:
       - uses: actions/checkout@v4
@@ -21,8 +25,8 @@ jobs:
       - name: Install
         run: pip install .
 
-      - name: Public tests
-        if: ${{ hashFiles('tests/**') != '' }}
+      - name: Tests
+        if: ${{ hashFiles('tests/**/test_*.py') != '' }}   # skipped, not failed, where the test folder is absent
         run: python -m unittest discover -s tests
 
       - name: Smoke check
@@ -30,7 +34,16 @@ jobs:
           python -c "import fdo_consume"
           fdo-consume --help
 
-      - name: Command line
+      - name: Command line, reading without a contract
+        run: fdo-consume inspect https://example.org/stand-in/hamburg-loom-record --depth describe --recorded-dir fixtures/cca-demo > /dev/null
+
+      - name: Command line, the dashboard's contracts and overlay from their folders
+        run: |
+          fdo-consume consume https://example.org/scenarios/cs3-dashboard/full --contract cs3-map-v1 --contracts fixtures/contracts --profile-maps fixtures/maps --profile-overlay cca-dashboard-additions --recorded-dir fixtures/scenarios/cs3-dashboard --report md > /dev/null
+          fdo-consume consume https://example.org/scenarios/loom-record/full --contract cs3-evidence-v1 --contracts fixtures/contracts --recorded-dir fixtures/scenarios/loom-record --report html --out report.html
+          test -s report.html
+
+      - name: Command line, a consumer's own contract and map
         run: >
           fdo-consume consume
           https://example.org/object/full

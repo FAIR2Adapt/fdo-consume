@@ -1,0 +1,28 @@
+# Example consumer profile map: the example profile with one extra field.
+id: my-terms-0.1
+status: example
+source: "example map for examples/own_dashboard; terms under https://example.org/terms/"
+selects:
+  - https://example.org/profile/panels/1.0
+identity: identifier
+fields:
+  title: {iri: "https://schema.org/name", level: must}
+  licence: {iri: "https://schema.org/license", level: should}
+  identifier: {iri: "https://schema.org/identifier", level: may}
+entities:
+  LayerFile:
+    via: "https://example.org/terms/file"
+    type: "https://example.org/terms/LayerFile"
+    role: resource
+    fields:
+      url: {iri: "https://example.org/terms/url", level: should}
+      media_type: {iri: "https://example.org/terms/mediaType", level: should}
+  Layer:
+    type: "https://example.org/terms/Layer"
+    fields:
+      name: {iri: "https://schema.org/name", level: should}
+  Measure:
+    type: "https://example.org/terms/Measure"
+    provides: [Variable]
+    fields:
+      code: {iri: "https://example.org/terms/code", level: should}
