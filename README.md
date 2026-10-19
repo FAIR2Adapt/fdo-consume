@@ -50,18 +50,6 @@ record.descriptor    # root fields, entities, resources, as the profile map read
 record.validation    # profile conformance, judged apart from any consumer
 ```
 
-Several contracts can be evaluated against the same object, and a collection (a root typed `Collection`) is consumed member by member with one contract:
-
-```python
-from fdo_consume import consume_for_contracts, consume_collection
-
-folders = {"contracts": "fixtures/contracts", "profile_maps": "fixtures/maps"}
-answers = consume_for_contracts(pid, ["cs3-metadata-v1", "cs3-map-v1"], recorded_dir="fixtures/scenarios/cs3-dashboard", **folders)
-answers["cs3-map-v1"].is_usable
-members = consume_collection(collection_pid, "cs3-metadata-v1", recorded_dir=folder, **folders)   # a root typed Collection
-members.usable_member_ids
-```
-
 A recorded folder holds `pids.json` (`{"<pid>": {"fixture": "<name>"}}`) and `objects/<name>/ro-crate-metadata.json`; payload files stay next to the crate. A resource inside the crate has the URL `in-crate:<path>`: the path is relative to that folder, and the library reads no payload bytes. An object that declares no profile IRI (the current Knowledge Loom export) is read with `profile="knowledge-loom-0.1.0"`.
 
 A contract names its consumer (`service`, `capability`), the needs (`term`, `level` must or should, an optional `reason`), the media types it `accepts`, and the overlay it needs (`profile_additions`); an optional `source` mapping may record where the needs come from. A term is a root field, an entity or a concept of a profile map (`fdo_consume.profiles.known_terms`); an overlay applies only to the map it extends, and the record's P2 step says when it was not applied.
@@ -76,6 +64,6 @@ fdo-consume consume <pid> --contract cs3-evidence-v1 --contracts fixtures/contra
 
 `--source recorded` (default) reads objects from a folder with a `pids.json`; `--source live` resolves HTTP(S) PIDs. The output is the JSON record (`--report json`), or an HTML or Markdown page rendered from it (`--report html`, `--report md`); `--out FILE` writes it to a file.
 
-Exit codes: `0` ok, `1` not resolved or error, `2` bad request, `3` one of the four statuses is FAIL.
+Exit codes: `0` ok, `1` not resolved, error, or a collection without members, `2` bad request, `3` one of the four statuses is FAIL.
 
 **Note:** fdo-consume is developed for FAIR2Adapt and supports the FAIR2Adapt CCA Profile and the CCA dashboard-profile proposal developed by LifeWatch. As these profiles continue to evolve, this repository is under active development and will be updated accordingly.
