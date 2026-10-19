@@ -1,0 +1,180 @@
+{
+ "@context": [
+  "https://w3id.org/ro/crate/1.2/context",
+  {
+   "hasPolicy": "http://www.w3.org/ns/odrl/2/hasPolicy",
+   "accessRights": "http://purl.org/dc/terms/accessRights",
+   "hasClaim": "https://schema.org/hasClaim",
+   "isReferencedBy": "http://purl.org/dc/terms/isReferencedBy",
+   "dataCollector": "https://w3id.org/citedcat-ap/dataCollector",
+   "source": "http://purl.org/dc/terms/source",
+   "dataNature": "https://w3id.org/ro/terms/cca/dataNature",
+   "hasSensitivityLevel": "https://w3id.org/dpv#hasSensitivityLevel",
+   "format": "http://purl.org/dc/terms/format",
+   "sha256": "https://w3id.org/fair2adapt/urban-pfr#sha256",
+   "iadopt": "https://w3id.org/iadopt/ont/",
+   "input": "https://bioschemas.org/properties/input",
+   "FormalParameter": "https://bioschemas.org/FormalParameter",
+   "valueRequired": "https://schema.org/valueRequired",
+   "valueName": "https://schema.org/valueName",
+   "defaultValue": "https://schema.org/defaultValue",
+   "softwareVersion": "https://schema.org/softwareVersion",
+   "WebPageElement": "https://schema.org/WebPageElement",
+   "PropertyValueSpecification": "https://schema.org/PropertyValueSpecification",
+   "instrument": "https://schema.org/instrument",
+   "object": "https://schema.org/object",
+   "position": "https://schema.org/position"
+  }
+ ],
+ "@graph": [
+  {
+   "@id": "ro-crate-metadata.json",
+   "@type": "CreativeWork",
+   "conformsTo": {
+    "@id": "https://w3id.org/ro/crate/1.2"
+   },
+   "about": {
+    "@id": "./"
+   }
+  },
+  {
+   "@id": "./",
+   "@type": "Dataset",
+   "identifier": "https://example.org/scenarios/dashboard-composer/plugin-full",
+   "name": "Dashboard plugin: bivariate risk map (synthetic)",
+   "description": "A view panel that draws a bivariate risk map from one map product.",
+   "datePublished": "2026-10-15",
+   "license": {
+    "@id": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   "conformsTo": {
+    "@id": "https://w3id.org/cc-crate-profile/0.9"
+   },
+   "author": {
+    "@id": "https://example.org/person/author-1"
+   },
+   "publisher": {
+    "@id": "#fixture-builder"
+   },
+   "keywords": [
+    "synthetic",
+    "example"
+   ],
+   "additionalType": "Dataset record",
+   "creativeWorkStatus": "synthetic example object for software testing",
+   "mainEntity": {
+    "@id": "#plugin"
+   },
+   "accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "conditionsOfAccess": "open; no registration",
+   "hasPolicy": {
+    "@id": "#policy-open"
+   }
+  },
+  {
+   "@id": "#plugin",
+   "@type": "SoftwareApplication",
+   "name": "bivariate-risk-map",
+   "additionalType": "view panel",
+   "url": "https://example.org/scenarios/dashboard-composer/plugin-full/panel.js",
+   "softwareVersion": "1.0.0",
+   "softwareRequirements": "composer-interface 0.1",
+   "input": [
+    {
+     "@id": "#input-main"
+    }
+   ],
+   "additionalProperty": [
+    {
+     "@id": "#setting-colour"
+    }
+   ]
+  },
+  {
+   "@id": "#input-main",
+   "@type": "FormalParameter",
+   "name": "main",
+   "additionalType": "Dataset",
+   "valueRequired": true,
+   "encodingFormat": [
+    "application/flatgeobuf",
+    "application/vnd.pmtiles"
+   ],
+   "variableMeasured": [
+    {
+     "@id": "#var-PFRMA"
+    },
+    {
+     "@id": "#var-PFRWB"
+    }
+   ],
+   "conformsTo": {
+    "@id": "https://example.org/shapes/bivariate-input"
+   },
+   "additionalProperty": {
+    "@id": "#input-source"
+   }
+  },
+  {
+   "@id": "#input-source",
+   "@type": "PropertyValue",
+   "name": "source",
+   "value": "panel object"
+  },
+  {
+   "@id": "#var-PFRMA",
+   "@type": "PropertyValue",
+   "name": "PFRMA",
+   "propertyID": {
+    "@id": "https://example.org/scenarios/cs3-dashboard/variable/PFRMA"
+   }
+  },
+  {
+   "@id": "#var-PFRWB",
+   "@type": "PropertyValue",
+   "name": "PFRWB",
+   "propertyID": {
+    "@id": "https://example.org/scenarios/cs3-dashboard/variable/PFRWB"
+   }
+  },
+  {
+   "@id": "#setting-colour",
+   "@type": "PropertyValueSpecification",
+   "valueName": "colorScheme",
+   "defaultValue": "yellow-purple",
+   "description": "the bivariate palette"
+  },
+  {
+   "@id": "#policy-open",
+   "@type": "http://www.w3.org/ns/odrl/2/Policy",
+   "name": "open access policy (synthetic)"
+  },
+  {
+   "@id": "https://w3id.org/cc-crate-profile/0.9",
+   "@type": [
+    "CreativeWork",
+    "Profile"
+   ],
+   "name": "CCA-Crate profile 0.9 (IRI as the profile text names it)"
+  },
+  {
+   "@id": "https://creativecommons.org/licenses/by/4.0/",
+   "@type": "CreativeWork",
+   "name": "CC BY 4.0"
+  },
+  {
+   "@id": "#fixture-builder",
+   "@type": "Organization",
+   "name": "Test fixture builder (synthetic object)"
+  },
+  {
+   "@id": "https://example.org/person/author-1",
+   "@type": "Person",
+   "name": "Example Author 1",
+   "givenName": "Example",
+   "familyName": "Author 1"
+  }
+ ]
+}

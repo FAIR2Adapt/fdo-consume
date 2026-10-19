@@ -1,0 +1,18 @@
+contract_id: knowledge-record-v1
+version: 1
+consumer:
+  service: "knowledge record view (any dashboard or page that shows one Knowledge Loom record)"
+  capability: "show the record's title, description, licence and date"
+needs:
+  - term: title
+    level: must
+    reason: "Required to head the record view."
+  - term: description
+    level: must
+    reason: "Used in the record view."
+  - term: licence
+    level: must
+    reason: "Used to state the terms of reuse."
+  - term: date
+    level: must
+    reason: "Used in the record view."

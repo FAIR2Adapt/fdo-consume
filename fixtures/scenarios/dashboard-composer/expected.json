@@ -1,0 +1,82 @@
+{
+ "_note": "",
+ "runs": [
+  {
+   "object": "dashboard-weak",
+   "contract": "dashboard-composition-v1",
+   "statuses": {
+    "resolution": "PASS",
+    "validation": "PARTIAL",
+    "compatibility": "FAIL",
+    "delivery": "NOT_ATTEMPTED"
+   },
+   "usable": false
+  },
+  {
+   "object": "dashboard-minimum",
+   "contract": "dashboard-composition-v1",
+   "statuses": {
+    "resolution": "PASS",
+    "validation": "PARTIAL",
+    "compatibility": "PASS",
+    "delivery": "PASS"
+   },
+   "usable": true
+  },
+  {
+   "object": "dashboard-full",
+   "contract": "dashboard-composition-v1",
+   "statuses": {
+    "resolution": "PASS",
+    "validation": "INDETERMINATE",
+    "compatibility": "PASS",
+    "delivery": "PASS"
+   },
+   "usable": true
+  },
+  {
+   "object": "dashboard-full",
+   "contract": "composer-object-v1",
+   "statuses": {
+    "resolution": "PASS",
+    "validation": "INDETERMINATE",
+    "compatibility": "PASS",
+    "delivery": "PASS"
+   },
+   "usable": true
+  },
+  {
+   "object": "plugin-weak",
+   "contract": "plugin-description-v1",
+   "statuses": {
+    "resolution": "PASS",
+    "validation": "PARTIAL",
+    "compatibility": "FAIL",
+    "delivery": "NOT_ATTEMPTED"
+   },
+   "usable": false
+  },
+  {
+   "object": "plugin-minimum",
+   "contract": "plugin-description-v1",
+   "statuses": {
+    "resolution": "PASS",
+    "validation": "PARTIAL",
+    "compatibility": "PARTIAL",
+    "delivery": "PASS"
+   },
+   "usable": true
+  },
+  {
+   "object": "plugin-full",
+   "contract": "plugin-description-v1",
+   "statuses": {
+    "resolution": "PASS",
+    "validation": "INDETERMINATE",
+    "compatibility": "PASS",
+    "delivery": "PASS"
+   },
+   "usable": true
+  }
+ ]
+}

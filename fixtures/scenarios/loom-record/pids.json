@@ -1,0 +1,12 @@
+{
+ "_note": "synthetic Knowledge Loom records (contracts knowledge-record-v1, cs3-evidence-v1, cs3-claims-v1); stand-in PIDs",
+ "https://example.org/scenarios/loom-record/weak": {
+  "fixture": "weak"
+ },
+ "https://example.org/scenarios/loom-record/minimum": {
+  "fixture": "minimum"
+ },
+ "https://example.org/scenarios/loom-record/full": {
+  "fixture": "full"
+ }
+}

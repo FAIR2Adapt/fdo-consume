@@ -1,0 +1,12 @@
+{
+ "_note": "synthetic objects in the shape the CS3 dashboard reads (contracts cs3-map-v1, cs3-metadata-v1, cs3-claims-v1); stand-in PIDs; metadata only, no payload files",
+ "https://example.org/scenarios/cs3-dashboard/weak": {
+  "fixture": "weak"
+ },
+ "https://example.org/scenarios/cs3-dashboard/minimum": {
+  "fixture": "minimum"
+ },
+ "https://example.org/scenarios/cs3-dashboard/full": {
+  "fixture": "full"
+ }
+}

@@ -1,0 +1,104 @@
+{
+ "_note": "",
+ "runs": [
+  {
+   "object": "weak",
+   "contract": "knowledge-record-v1",
+   "statuses": {
+    "resolution": "PASS",
+    "validation": "FAIL",
+    "compatibility": "FAIL",
+    "delivery": "NOT_ATTEMPTED"
+   },
+   "usable": false
+  },
+  {
+   "object": "weak",
+   "contract": "cs3-evidence-v1",
+   "statuses": {
+    "resolution": "PASS",
+    "validation": "FAIL",
+    "compatibility": "PARTIAL",
+    "delivery": "PASS"
+   },
+   "usable": true
+  },
+  {
+   "object": "weak",
+   "contract": "cs3-claims-v1",
+   "statuses": {
+    "resolution": "PASS",
+    "validation": "FAIL",
+    "compatibility": "FAIL",
+    "delivery": "NOT_ATTEMPTED"
+   },
+   "usable": false
+  },
+  {
+   "object": "minimum",
+   "contract": "knowledge-record-v1",
+   "statuses": {
+    "resolution": "PASS",
+    "validation": "PARTIAL",
+    "compatibility": "PASS",
+    "delivery": "PASS"
+   },
+   "usable": true
+  },
+  {
+   "object": "minimum",
+   "contract": "cs3-evidence-v1",
+   "statuses": {
+    "resolution": "PASS",
+    "validation": "PARTIAL",
+    "compatibility": "PARTIAL",
+    "delivery": "PASS"
+   },
+   "usable": true
+  },
+  {
+   "object": "minimum",
+   "contract": "cs3-claims-v1",
+   "statuses": {
+    "resolution": "PASS",
+    "validation": "PARTIAL",
+    "compatibility": "FAIL",
+    "delivery": "NOT_ATTEMPTED"
+   },
+   "usable": false
+  },
+  {
+   "object": "full",
+   "contract": "knowledge-record-v1",
+   "statuses": {
+    "resolution": "PASS",
+    "validation": "INDETERMINATE",
+    "compatibility": "PASS",
+    "delivery": "PASS"
+   },
+   "usable": true
+  },
+  {
+   "object": "full",
+   "contract": "cs3-evidence-v1",
+   "statuses": {
+    "resolution": "PASS",
+    "validation": "INDETERMINATE",
+    "compatibility": "PASS",
+    "delivery": "PASS"
+   },
+   "usable": true
+  },
+  {
+   "object": "full",
+   "contract": "cs3-claims-v1",
+   "statuses": {
+    "resolution": "PASS",
+    "validation": "INDETERMINATE",
+    "compatibility": "PASS",
+    "delivery": "PASS"
+   },
+   "usable": true
+  }
+ ]
+}

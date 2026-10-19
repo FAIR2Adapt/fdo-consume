@@ -1,0 +1,21 @@
+contract_id: cs3-map-v1
+version: 2
+consumer:
+  service: "CS3 urban pluvial flood dashboard (repository urban-pfr-dashboard)"
+  capability: "draw the public risk map layer and the social vulnerability background from the object's map products"
+profile_additions: cca-dashboard-additions
+accepts:
+  - application/vnd.flatgeobuf
+  - application/flatgeobuf
+  - application/vnd.pmtiles
+  - application/geo+json
+needs:
+  - term: Dataset
+    level: must
+    reason: "Required to identify the map products available to the map renderer."
+  - term: Variable
+    level: must
+    reason: "Required to bind the variables the map renderer colours by."
+  - term: Property
+    level: should
+    reason: "Used for a deterministic classification and legend; without it the layer is drawn unclassified."

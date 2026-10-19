@@ -1,0 +1,18 @@
+contract_id: cs3-evidence-v1
+version: 1
+consumer:
+  service: "CS3 urban pluvial flood dashboard (repository urban-pfr-dashboard)"
+  capability: "show, next to the map, the Knowledge Loom record that asserts the claims: its title, status, authors and statements"
+needs:
+  - term: title
+    level: must
+    reason: "Required to name the record in the evidence section."
+  - term: Statement
+    level: should
+    reason: "Used to show the text of the statements the claims refer to."
+  - term: status
+    level: should
+    reason: "Used to show whether the record is unpublished, embargoed or published."
+  - term: author_name
+    level: should
+    reason: "Used to name the authors of the record."

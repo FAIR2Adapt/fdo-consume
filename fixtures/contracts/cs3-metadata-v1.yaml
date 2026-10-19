@@ -1,0 +1,21 @@
+contract_id: cs3-metadata-v1
+version: 1
+consumer:
+  service: "CS3 urban pluvial flood dashboard (repository urban-pfr-dashboard)"
+  capability: "head the page and fill the metadata panel: title, description, licence, date, authors"
+needs:
+  - term: title
+    level: must
+    reason: "Required to head the page and the metadata panel."
+  - term: description
+    level: should
+    reason: "Used in the metadata panel."
+  - term: licence
+    level: should
+    reason: "Used in the metadata panel to state the terms of reuse."
+  - term: date
+    level: should
+    reason: "Used in the metadata panel."
+  - term: author
+    level: should
+    reason: "Used in the metadata panel."

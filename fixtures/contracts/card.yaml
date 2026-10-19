@@ -1,0 +1,4 @@
+contract_id: card-v1
+consumer: list and record views
+must: [name, identifier]
+should: [resource_type, description, license, date]

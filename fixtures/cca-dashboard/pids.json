@@ -1,48 +1,15 @@
 {
- "_note": "stand-in PIDs; the objects have no PID yet. Metadata only: the payload files stay in the dashboard test data. Synthetic test objects in the shape of the CCA profile; the Loom record is migrated to profile 0.1.0, the legacy one is the unmigrated export. The hub collection, the policy brief and the untitled note are synthetic members for a collection consumer.",
+ "_note": "stand-in PIDs; the objects have no PID yet. Metadata only: the payload files stay in the dashboard test data. Synthetic test objects: the Hamburg and Bremen Data FDOs in the shape of the CCA profile with the draft dashboard additions, and their Knowledge Loom records (profile 0.1.0).",
  "https://example.org/stand-in/hamburg-cca-profile-demo": {
   "fixture": "hamburg-cca-profile-demo"
  },
  "https://example.org/stand-in/hamburg-loom-record": {
   "fixture": "hamburg-loom-record"
  },
- "https://example.org/stand-in/hamburg-legacy-loom": {
-  "fixture": "hamburg-legacy-loom"
+ "https://example.org/stand-in/bremen-cca-profile-demo": {
+  "fixture": "bremen-cca-profile-demo"
  },
- "https://example.org/stand-in/hamburg-cca-spelling-b": {
-  "fixture": "hamburg-cca-spelling-b"
- },
- "https://example.org/stand-in/hamburg-hub-collection": {
-  "fixture": "hamburg-hub-collection"
- },
- "https://example.org/stand-in/hamburg-policy-brief": {
-  "fixture": "hamburg-policy-brief"
- },
- "https://example.org/stand-in/hamburg-untitled-note": {
-  "fixture": "hamburg-untitled-note"
- },
- "https://example.org/stand-in/plugin/bivariate-risk-map": {
-  "fixture": "plugin-bivariate-risk-map"
- },
- "https://example.org/stand-in/plugin/single-variable-map": {
-  "fixture": "plugin-single-variable-map"
- },
- "https://example.org/stand-in/plugin/bivariate-background-map": {
-  "fixture": "plugin-bivariate-background-map"
- },
- "https://example.org/stand-in/plugin/claims-list": {
-  "fixture": "plugin-claims-list"
- },
- "https://example.org/stand-in/plugin/metadata-card": {
-  "fixture": "plugin-metadata-card"
- },
- "https://example.org/stand-in/hamburg-dashboard": {
-  "fixture": "hamburg-dashboard"
- },
- "https://example.org/stand-in/plugin/foreign-risk-map": {
-  "fixture": "plugin-foreign-risk-map"
- },
- "https://example.org/stand-in/hamburg-dashboard-foreign": {
-  "fixture": "hamburg-dashboard-foreign"
+ "https://example.org/stand-in/bremen-loom-record": {
+  "fixture": "bremen-loom-record"
  }
 }

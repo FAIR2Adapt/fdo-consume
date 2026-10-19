@@ -1,0 +1,21 @@
+{
+ "_note": "synthetic Dashboard FDOs and Dashboard Plugin FDOs (contracts dashboard-composition-v1, plugin-description-v1, composer-object-v1); stand-in PIDs",
+ "https://example.org/scenarios/dashboard-composer/dashboard-weak": {
+  "fixture": "dashboard-weak"
+ },
+ "https://example.org/scenarios/dashboard-composer/dashboard-minimum": {
+  "fixture": "dashboard-minimum"
+ },
+ "https://example.org/scenarios/dashboard-composer/dashboard-full": {
+  "fixture": "dashboard-full"
+ },
+ "https://example.org/scenarios/dashboard-composer/plugin-weak": {
+  "fixture": "plugin-weak"
+ },
+ "https://example.org/scenarios/dashboard-composer/plugin-minimum": {
+  "fixture": "plugin-minimum"
+ },
+ "https://example.org/scenarios/dashboard-composer/plugin-full": {
+  "fixture": "plugin-full"
+ }
+}

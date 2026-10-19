@@ -12,7 +12,7 @@
    "https://w3id.org/cc-crate-profile/0.9"
   ],
   "map": "cca-crate-0.9",
-  "overlay": "cca-dashboard-proposal-2026-09",
+  "overlay": "cca-dashboard-additions",
   "fields": {
    "title": "Hamburg urban pluvial flood risk and social vulnerability: HEALPix cell products (demo)",
    "description": "Two public map products of the urban-pfr toolbox for Hamburg, aggregated to HEALPix equal-area cells, with the three statements of the underlying study referenced from their Knowledge Loom record. All data values and associated test metadata are synthetic.",
@@ -658,6 +658,8 @@
     "policy": null,
     "requires_authorization": false
    },
+   "name": "PFR risk cells [FlatGeobuf]",
+   "fields": {},
    "accepted": true
   },
   {
@@ -686,6 +688,12 @@
     ],
     "policy": null,
     "requires_authorization": false
+   },
+   "name": "PFR risk cells [PMTiles]",
+   "fields": {
+    "url_profiles": [
+     "https://github.com/protomaps/PMTiles/blob/main/spec/v3/spec.md"
+    ]
    },
    "accepted": true
   },
@@ -716,6 +724,8 @@
     "policy": null,
     "requires_authorization": false
    },
+   "name": "Social vulnerability cells [FlatGeobuf]",
+   "fields": {},
    "accepted": true
   },
   {
@@ -744,6 +754,12 @@
     ],
     "policy": null,
     "requires_authorization": false
+   },
+   "name": "Social vulnerability cells [PMTiles]",
+   "fields": {
+    "url_profiles": [
+     "https://github.com/protomaps/PMTiles/blob/main/spec/v3/spec.md"
+    ]
    },
    "accepted": true
   }

@@ -1,0 +1,90 @@
+{
+ "@context": [
+  "https://w3id.org/ro/crate/1.3/context",
+  {
+   "loom": "https://knowledgeloom.science/",
+   "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+   "skos": "http://www.w3.org/2004/02/skos/core#",
+   "concepts": {
+    "@id": "loom:concepts",
+    "@type": "@id"
+   },
+   "notation": "loom:notation",
+   "supports": "loom:supports"
+  }
+ ],
+ "@graph": [
+  {
+   "@id": "ro-crate-metadata.json",
+   "@type": "CreativeWork",
+   "conformsTo": {
+    "@id": "https://w3id.org/ro/crate/1.3"
+   },
+   "about": {
+    "@id": "./"
+   }
+  },
+  {
+   "@id": "./",
+   "@type": "Dataset",
+   "identifier": "https://example.org/scenarios/loom-record/weak",
+   "name": "Synthetic study, weak record",
+   "description": "Published without a statement, a date or a licence.",
+   "conformsTo": {
+    "@id": "https://knowledgeloom.science/profile/record/0.1.0"
+   },
+   "author": [
+    {
+     "@id": "#anonymous"
+    }
+   ],
+   "isBasedOn": [
+    {
+     "@id": "#source-article"
+    }
+   ],
+   "status": "published"
+  },
+  {
+   "@id": "#source-article",
+   "@type": [
+    "ScholarlyArticle"
+   ],
+   "name": "Placeholder source article (synthetic)",
+   "author": [
+    {
+     "@id": "https://example.org/person/author-1"
+    }
+   ]
+  },
+  {
+   "@id": "#anonymous",
+   "@type": "Person"
+  },
+  {
+   "@id": "https://knowledgeloom.science/profile/record/0.1.0",
+   "@type": [
+    "CreativeWork",
+    "Profile"
+   ],
+   "name": "Knowledge Loom Record RO-Crate Profile 0.1.0 (candidate URI)"
+  },
+  {
+   "@id": "https://creativecommons.org/licenses/by/4.0/",
+   "@type": "CreativeWork",
+   "name": "CC BY 4.0"
+  },
+  {
+   "@id": "#fixture-builder",
+   "@type": "Organization",
+   "name": "Test fixture builder (synthetic object)"
+  },
+  {
+   "@id": "https://example.org/person/author-1",
+   "@type": "Person",
+   "name": "Example Author 1",
+   "givenName": "Example",
+   "familyName": "Author 1"
+  }
+ ]
+}

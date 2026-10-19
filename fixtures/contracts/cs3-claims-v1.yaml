@@ -1,0 +1,9 @@
+contract_id: cs3-claims-v1
+version: 2
+consumer:
+  service: "CS3 urban pluvial flood dashboard (repository urban-pfr-dashboard)"
+  capability: "list, in the evidence panel, the assertions of the object and the records that assert them"
+needs:
+  - term: Assertion
+    level: must
+    reason: "Required to list the assertions of the object in the evidence panel."

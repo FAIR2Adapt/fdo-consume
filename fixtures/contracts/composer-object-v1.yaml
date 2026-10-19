@@ -1,0 +1,10 @@
+contract_id: composer-object-v1
+version: 1
+consumer:
+  service: "CS3 dashboard composer"
+  capability: "describe the object a panel names, so that a plugin's inputs can be bound to its entities"
+profile_additions: cca-dashboard-additions
+needs:
+  - term: title
+    level: should
+    reason: "Used to name what the plan composed."

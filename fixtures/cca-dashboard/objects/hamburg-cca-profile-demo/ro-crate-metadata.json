@@ -86,7 +86,7 @@
     "Profile"
    ],
    "name": "CCA-Crate profile 0.9 (test object)",
-   "description": "Dashboard terms follow the dashboard additions proposed for the CCA profile (FAIR2Adapt WP2 working draft)."
+   "description": "Dashboard terms follow the draft dashboard additions to the CCA profile."
   },
   {
    "@id": "https://creativecommons.org/licenses/by/4.0/",

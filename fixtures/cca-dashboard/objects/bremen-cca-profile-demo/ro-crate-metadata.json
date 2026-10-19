@@ -1,0 +1,517 @@
+{
+ "@context": [
+  "https://w3id.org/ro/crate/1.2/context",
+  {
+   "hasPolicy": "http://www.w3.org/ns/odrl/2/hasPolicy",
+   "accessRights": "http://purl.org/dc/terms/accessRights",
+   "hasClaim": "https://schema.org/hasClaim",
+   "isReferencedBy": "http://purl.org/dc/terms/isReferencedBy",
+   "accessService": "http://www.w3.org/ns/dcat#accessService",
+   "contentEncryption": "https://w3id.org/sciencelive/o/terms/contentEncryption",
+   "Nanopublication": "http://www.nanopub.org/nschema#Nanopublication",
+   "sha256": "https://w3id.org/fair2adapt/urban-pfr#sha256"
+  }
+ ],
+ "@graph": [
+  {
+   "@id": "ro-crate-metadata.json",
+   "@type": "CreativeWork",
+   "conformsTo": {
+    "@id": "https://w3id.org/ro/crate/1.2"
+   },
+   "about": {
+    "@id": "./"
+   }
+  },
+  {
+   "@id": "./",
+   "@type": "Dataset",
+   "name": "Bremen urban pluvial flood risk and social vulnerability: HEALPix cell products (demo)",
+   "description": "Two public map products of the urban-pfr toolbox for Bremen, aggregated to HEALPix equal-area cells. Their claims are the statements of a separate Knowledge Loom record, linked by PID, not copied. Demo data: values are synthetic; shapes, variables and formats are synthetic test material.",
+   "creativeWorkStatus": "demo: synthetic values; no PID minted yet",
+   "datePublished": "2026-10-15",
+   "dateCreated": "2026-09-18",
+   "license": {
+    "@id": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   "author": {
+    "@id": "#fixture-builder"
+   },
+   "publisher": {
+    "@id": "https://example.org/institute"
+   },
+   "conformsTo": {
+    "@id": "https://w3id.org/cca-crate-profile/0.9"
+   },
+   "spatialCoverage": {
+    "@id": "#place-bremen-extent"
+   },
+   "hasPart": [
+    {
+     "@id": "#product-risk-healpix"
+    },
+    {
+     "@id": "#product-vulnerability-healpix"
+    }
+   ],
+   "mentions": {
+    "@id": "#run"
+   },
+   "hasClaim": [
+    {
+     "@id": "https://example.org/stand-in/bremen-loom-record#1b7c0e2a-5f3d-4a9e-8c21-6d4e9f0a1b2c"
+    },
+    {
+     "@id": "https://example.org/stand-in/bremen-loom-record#2c8d1f3b-6a4e-4b0f-9d32-7e5f0a1b2c3d"
+    },
+    {
+     "@id": "https://example.org/stand-in/bremen-loom-record#3d9e2a4c-7b5f-4c1a-ae43-8f6a1b2c3d4e"
+    }
+   ],
+   "subjectOf": {
+    "@id": "https://example.org/stand-in/bremen-loom-record"
+   },
+   "identifier": "https://example.org/stand-in/bremen-cca-profile-demo"
+  },
+  {
+   "@id": "https://w3id.org/cca-crate-profile/0.9",
+   "@type": [
+    "CreativeWork",
+    "Profile"
+   ],
+   "name": "CCA-Crate profile 0.9 (test object)",
+   "description": "Dashboard terms follow the draft dashboard additions to the CCA profile."
+  },
+  {
+   "@id": "https://creativecommons.org/licenses/by/4.0/",
+   "@type": "CreativeWork",
+   "name": "CC BY 4.0"
+  },
+  {
+   "@id": "#fixture-builder",
+   "@type": "Organization",
+   "name": "Test fixture builder (synthetic object)"
+  },
+  {
+   "@id": "https://example.org/institute",
+   "@type": "Organization",
+   "name": "Example Institute",
+   "url": "https://example.org/"
+  },
+  {
+   "@id": "#place-bremen-extent",
+   "@type": "Place",
+   "name": "Bremen (demo extent)",
+   "geo": {
+    "@id": "#bbox-bremen-extent"
+   }
+  },
+  {
+   "@id": "#bbox-bremen-extent",
+   "@type": "GeoShape",
+   "box": "53.012587 8.482009 53.230608 8.990818"
+  },
+  {
+   "@id": "#spatial-structure-healpix",
+   "@type": "PropertyValue",
+   "name": "spatialStructure",
+   "value": "discrete global grid (HEALPix)",
+   "description": "HEALPix depth 15 cells in EPSG:4326, one polygon per cell"
+  },
+  {
+   "@id": "#spatial-structure-parameters",
+   "@type": "PropertyValue",
+   "name": "spatialStructureParameters",
+   "value": "healpix_depth=15; crs=EPSG:4326; geometry=Polygon; cells=7747"
+  },
+  {
+   "@id": "#var-PFRMA_smoothed",
+   "@type": "PropertyValue",
+   "name": "PFRMA_smoothed",
+   "description": "pluvial flood risk, mobility and accessibility (smoothed index)",
+   "unitCode": {
+    "@id": "http://qudt.org/vocab/unit/UNITLESS"
+   },
+   "unitText": "dimensionless index",
+   "propertyID": {
+    "@id": "https://example.org/stand-in/variable/risk_mobility_accessibility"
+   }
+  },
+  {
+   "@id": "#var-PFRWB_smoothed",
+   "@type": "PropertyValue",
+   "name": "PFRWB_smoothed",
+   "description": "pluvial flood risk, well-being (smoothed index)",
+   "unitCode": {
+    "@id": "http://qudt.org/vocab/unit/UNITLESS"
+   },
+   "unitText": "dimensionless index",
+   "propertyID": {
+    "@id": "https://example.org/stand-in/variable/risk_wellbeing"
+   }
+  },
+  {
+   "@id": "#var-HMA",
+   "@type": "PropertyValue",
+   "name": "HMA",
+   "description": "hazard index, mobility and accessibility",
+   "unitCode": {
+    "@id": "http://qudt.org/vocab/unit/UNITLESS"
+   },
+   "unitText": "index 0-1",
+   "propertyID": {
+    "@id": "https://example.org/stand-in/variable/hazard_mobility_accessibility"
+   }
+  },
+  {
+   "@id": "#var-HWB",
+   "@type": "PropertyValue",
+   "name": "HWB",
+   "description": "hazard index, well-being",
+   "unitCode": {
+    "@id": "http://qudt.org/vocab/unit/UNITLESS"
+   },
+   "unitText": "index 0-1",
+   "propertyID": {
+    "@id": "https://example.org/stand-in/variable/hazard_wellbeing"
+   }
+  },
+  {
+   "@id": "#var-healpix_id",
+   "@type": "PropertyValue",
+   "name": "healpix_id",
+   "description": "HEALPix cell identifier (depth 15)",
+   "unitCode": {
+    "@id": "http://qudt.org/vocab/unit/NUM"
+   },
+   "unitText": "cell id",
+   "propertyID": {
+    "@id": "https://example.org/stand-in/variable/cell_id"
+   }
+  },
+  {
+   "@id": "#var-n_buildings",
+   "@type": "PropertyValue",
+   "name": "n_buildings",
+   "description": "number of buildings aggregated into the cell",
+   "unitCode": {
+    "@id": "http://qudt.org/vocab/unit/NUM"
+   },
+   "unitText": "count",
+   "propertyID": {
+    "@id": "https://example.org/stand-in/variable/aggregation_count"
+   }
+  },
+  {
+   "@id": "#var-SVPF",
+   "@type": "PropertyValue",
+   "name": "SVPF",
+   "description": "social vulnerability to pluvial flooding (TOPSIS score)",
+   "unitCode": {
+    "@id": "http://qudt.org/vocab/unit/UNITLESS"
+   },
+   "unitText": "score 0-1",
+   "propertyID": {
+    "@id": "https://example.org/stand-in/variable/social_vulnerability"
+   }
+  },
+  {
+   "@id": "#var-SVI",
+   "@type": "PropertyValue",
+   "name": "SVI",
+   "description": "social vulnerability index",
+   "unitCode": {
+    "@id": "http://qudt.org/vocab/unit/UNITLESS"
+   },
+   "unitText": "index 0-1",
+   "propertyID": {
+    "@id": "https://example.org/stand-in/variable/svi"
+   }
+  },
+  {
+   "@id": "#var-Sensitivity",
+   "@type": "PropertyValue",
+   "name": "Sensitivity",
+   "description": "sensitivity driver of vulnerability",
+   "unitCode": {
+    "@id": "http://qudt.org/vocab/unit/UNITLESS"
+   },
+   "unitText": "dimensionless index",
+   "propertyID": {
+    "@id": "https://example.org/stand-in/variable/sensitivity"
+   }
+  },
+  {
+   "@id": "#var-CopingCapacity",
+   "@type": "PropertyValue",
+   "name": "CopingCapacity",
+   "description": "coping-capacity driver of vulnerability",
+   "unitCode": {
+    "@id": "http://qudt.org/vocab/unit/UNITLESS"
+   },
+   "unitText": "dimensionless index",
+   "propertyID": {
+    "@id": "https://example.org/stand-in/variable/coping_capacity"
+   }
+  },
+  {
+   "@id": "http://qudt.org/vocab/unit/UNITLESS",
+   "@type": "DefinedTerm",
+   "name": "unitless (QUDT)"
+  },
+  {
+   "@id": "http://qudt.org/vocab/unit/NUM",
+   "@type": "DefinedTerm",
+   "name": "number / count (QUDT)"
+  },
+  {
+   "@id": "#classification-risk-healpix",
+   "@type": "PropertyValue",
+   "name": "classBreaks",
+   "description": "Class breaks as JSON; no profile term for a legend is known yet, so they travel as additionalProperty.",
+   "value": "{\"method\": \"positive-quantile P80/P95/P99 (zeros are class 0)\", \"thresholdStatus\": \"provisional_pending_scientific_validation\", \"breaks_ma\": [0.63046683, 2.11474288, 3.92595412], \"breaks_wb\": [0.12353117, 0.56949086, 1.60106609]}"
+  },
+  {
+   "@id": "#classification-vulnerability-healpix",
+   "@type": "PropertyValue",
+   "name": "classBreaks",
+   "description": "Class breaks as JSON; no profile term for a legend is known yet, so they travel as additionalProperty.",
+   "value": "{\"method\": \"positive-quantile (SVPF quartiles; drivers tertiles)\", \"thresholdStatus\": \"provisional_pending_scientific_validation\", \"breaks_sv\": [0.0131934, 0.02246992, 0.04936705], \"breaks_sensitivity\": [0.10643508, 0.18152225], \"breaks_coping\": [0.10458565, 0.17077528]}"
+  },
+  {
+   "@id": "#product-risk-healpix",
+   "@type": "Dataset",
+   "name": "PFR risk, HEALPix equal-area cells (public)",
+   "description": "Bivariate pluvial flood risk (mobility/accessibility x well-being) per HEALPix cell.",
+   "license": {
+    "@id": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   "accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "conditionsOfAccess": "open; no registration",
+   "distribution": [
+    {
+     "@id": "public/risk_healpix.fgb"
+    },
+    {
+     "@id": "public/risk_healpix.pmtiles"
+    }
+   ],
+   "variableMeasured": [
+    {
+     "@id": "#var-PFRMA_smoothed"
+    },
+    {
+     "@id": "#var-PFRWB_smoothed"
+    },
+    {
+     "@id": "#var-HMA"
+    },
+    {
+     "@id": "#var-HWB"
+    },
+    {
+     "@id": "#var-healpix_id"
+    },
+    {
+     "@id": "#var-n_buildings"
+    }
+   ],
+   "additionalProperty": [
+    {
+     "@id": "#spatial-structure-healpix"
+    },
+    {
+     "@id": "#spatial-structure-parameters"
+    },
+    {
+     "@id": "#classification-risk-healpix"
+    }
+   ],
+   "spatialCoverage": {
+    "@id": "#place-bremen-extent"
+   },
+   "identifier": "https://example.org/stand-in/bremen/product/risk-healpix"
+  },
+  {
+   "@id": "#product-vulnerability-healpix",
+   "@type": "Dataset",
+   "name": "Social vulnerability, HEALPix equal-area cells (public)",
+   "description": "Social vulnerability (SVPF, SVI) and its drivers (sensitivity, coping capacity) per HEALPix cell.",
+   "license": {
+    "@id": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   "accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "conditionsOfAccess": "open; no registration",
+   "distribution": [
+    {
+     "@id": "public/vulnerability_healpix.fgb"
+    },
+    {
+     "@id": "public/vulnerability_healpix.pmtiles"
+    }
+   ],
+   "variableMeasured": [
+    {
+     "@id": "#var-SVPF"
+    },
+    {
+     "@id": "#var-SVI"
+    },
+    {
+     "@id": "#var-Sensitivity"
+    },
+    {
+     "@id": "#var-CopingCapacity"
+    },
+    {
+     "@id": "#var-healpix_id"
+    },
+    {
+     "@id": "#var-n_buildings"
+    }
+   ],
+   "additionalProperty": [
+    {
+     "@id": "#spatial-structure-healpix"
+    },
+    {
+     "@id": "#spatial-structure-parameters"
+    },
+    {
+     "@id": "#classification-vulnerability-healpix"
+    }
+   ],
+   "spatialCoverage": {
+    "@id": "#place-bremen-extent"
+   },
+   "identifier": "https://example.org/stand-in/bremen/product/vulnerability-healpix"
+  },
+  {
+   "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC",
+   "@type": "DefinedTerm",
+   "name": "public (EU access-right vocabulary)"
+  },
+  {
+   "@id": "public/risk_healpix.fgb",
+   "@type": [
+    "File",
+    "DataDownload"
+   ],
+   "name": "PFR risk cells [FlatGeobuf]",
+   "contentUrl": "public/risk_healpix.fgb",
+   "encodingFormat": "application/flatgeobuf",
+   "contentSize": 2005360,
+   "sha256": "4a04926da86c47bceaf59891b11d172311d2f420b5361052b967f43de1734ba8"
+  },
+  {
+   "@id": "public/risk_healpix.pmtiles",
+   "@type": [
+    "File",
+    "DataDownload"
+   ],
+   "name": "PFR risk cells [PMTiles]",
+   "contentUrl": "public/risk_healpix.pmtiles",
+   "encodingFormat": "application/vnd.pmtiles",
+   "contentSize": 1930507,
+   "sha256": "60e90299f131a763fe27ed78e3ab4319e3c476bbd684e8b26dfa17bd1fdfb65f",
+   "conformsTo": {
+    "@id": "https://github.com/protomaps/PMTiles/blob/main/spec/v3/spec.md"
+   }
+  },
+  {
+   "@id": "public/vulnerability_healpix.fgb",
+   "@type": [
+    "File",
+    "DataDownload"
+   ],
+   "name": "Social vulnerability cells [FlatGeobuf]",
+   "contentUrl": "public/vulnerability_healpix.fgb",
+   "encodingFormat": "application/flatgeobuf",
+   "contentSize": 1819384,
+   "sha256": "cabd5de630bc68928c6149e023f96de3b421a5d0282f42eda3d4dbcaa795528a"
+  },
+  {
+   "@id": "public/vulnerability_healpix.pmtiles",
+   "@type": [
+    "File",
+    "DataDownload"
+   ],
+   "name": "Social vulnerability cells [PMTiles]",
+   "contentUrl": "public/vulnerability_healpix.pmtiles",
+   "encodingFormat": "application/vnd.pmtiles",
+   "contentSize": 4744750,
+   "sha256": "bd65e9a0ee6f5bb282f207ea54dfbc404649da1fbecd76a7c202f9d40a4d4f92",
+   "conformsTo": {
+    "@id": "https://github.com/protomaps/PMTiles/blob/main/spec/v3/spec.md"
+   }
+  },
+  {
+   "@id": "#run",
+   "@type": "CreateAction",
+   "name": "demo fixture generation (urban-pfr 0.2.1)",
+   "instrument": {
+    "@id": "#software-urban-pfr-0.2.1"
+   },
+   "agent": {
+    "@id": "#fixture-builder"
+   },
+   "actionStatus": "https://schema.org/CompletedActionStatus",
+   "endTime": "2026-09-18T07:49:11+00:00",
+   "result": [
+    {
+     "@id": "#product-risk-healpix"
+    },
+    {
+     "@id": "#product-vulnerability-healpix"
+    }
+   ],
+   "description": "config_bremen_test_v4.yaml; aggregation=mean; healpix_depth=15; min_buildings_k=3; synthetic=true; synthesis_seed=20260918"
+  },
+  {
+   "@id": "#software-urban-pfr-0.2.1",
+   "@type": "SoftwareApplication",
+   "name": "urban-pfr",
+   "softwareVersion": "0.2.1",
+   "url": "https://example.org/software/urban-pfr"
+  },
+  {
+   "@id": "https://example.org/stand-in/bremen-loom-record#1b7c0e2a-5f3d-4a9e-8c21-6d4e9f0a1b2c",
+   "@type": "Claim",
+   "isReferencedBy": {
+    "@id": "https://example.org/stand-in/bremen-loom-record"
+   },
+   "about": {
+    "@id": "#product-risk-healpix"
+   }
+  },
+  {
+   "@id": "https://example.org/stand-in/bremen-loom-record#2c8d1f3b-6a4e-4b0f-9d32-7e5f0a1b2c3d",
+   "@type": "Claim",
+   "isReferencedBy": {
+    "@id": "https://example.org/stand-in/bremen-loom-record"
+   },
+   "about": {
+    "@id": "#product-vulnerability-healpix"
+   }
+  },
+  {
+   "@id": "https://example.org/stand-in/bremen-loom-record#3d9e2a4c-7b5f-4c1a-ae43-8f6a1b2c3d4e",
+   "@type": "Claim",
+   "isReferencedBy": {
+    "@id": "https://example.org/stand-in/bremen-loom-record"
+   },
+   "about": {
+    "@id": "#product-vulnerability-healpix"
+   }
+  },
+  {
+   "@id": "https://example.org/stand-in/bremen-loom-record",
+   "@type": "Dataset",
+   "name": "Knowledge Loom record of the synthetic Bremen demo run (asserting record of the claims)"
+  }
+ ]
+}

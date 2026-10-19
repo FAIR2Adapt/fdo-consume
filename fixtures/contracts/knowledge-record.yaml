@@ -1,0 +1,4 @@
+contract_id: knowledge-record
+consumer: record view of a knowledge record
+must: [name, license, date]
+should: [identifier, description, resource_type]

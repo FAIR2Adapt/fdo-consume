@@ -1,0 +1,13 @@
+contract_id: plugin-description-v1
+version: 1
+consumer:
+  service: "dashboard composer"
+  capability: "read what a Dashboard Plugin FDO accepts: inputs, their variables and formats, settings"
+profile_additions: cca-dashboard-additions
+needs:
+  - term: Plugin
+    level: must
+    reason: "Required to resolve the renderer registered for the plugin."
+  - term: Input
+    level: should
+    reason: "Used to bind plugin input requirements to target entities; optional for plugins without inputs."

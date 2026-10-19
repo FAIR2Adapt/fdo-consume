@@ -1,0 +1,13 @@
+contract_id: dashboard-composition-v1
+version: 1
+consumer:
+  service: "dashboard composer"
+  capability: "read the panels of a Dashboard FDO: plugin, object, settings, position"
+profile_additions: cca-dashboard-additions
+needs:
+  - term: Dashboard
+    level: must
+    reason: "Required to identify the dashboard composition."
+  - term: Panel
+    level: must
+    reason: "Required to enumerate the panels of the dashboard composition."

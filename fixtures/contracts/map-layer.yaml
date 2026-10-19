@@ -1,0 +1,10 @@
+contract_id: map-layer-v1
+consumer: map view
+accepts:
+  - application/vnd.flatgeobuf
+  - application/flatgeobuf
+  - application/geo+json
+  - application/geopackage+sqlite3
+  - application/vnd.pmtiles
+must: [name, license]
+should: [description, date]

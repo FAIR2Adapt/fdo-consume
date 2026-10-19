@@ -1,0 +1,166 @@
+{
+ "@context": [
+  "https://w3id.org/ro/crate/1.3/context",
+  {
+   "loom": "https://knowledgeloom.science/",
+   "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+   "skos": "http://www.w3.org/2004/02/skos/core#",
+   "concepts": {
+    "@id": "loom:concepts",
+    "@type": "@id"
+   },
+   "notation": "loom:notation",
+   "supports": "loom:supports"
+  }
+ ],
+ "@graph": [
+  {
+   "@id": "ro-crate-metadata.json",
+   "@type": "CreativeWork",
+   "conformsTo": {
+    "@id": "https://w3id.org/ro/crate/1.3"
+   },
+   "about": {
+    "@id": "./"
+   }
+  },
+  {
+   "@id": "./",
+   "@type": "Dataset",
+   "identifier": "https://example.org/scenarios/loom-record/full",
+   "name": "Synthetic study of urban flooding (test record)",
+   "description": "A synthetic Knowledge Loom record with two statements, one file and all profile terms.",
+   "datePublished": "2026-10-15",
+   "license": {
+    "@id": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   "conformsTo": {
+    "@id": "https://knowledgeloom.science/profile/record/0.1.0"
+   },
+   "author": [
+    {
+     "@id": "https://example.org/person/author-1"
+    }
+   ],
+   "publisher": {
+    "@id": "#fixture-builder"
+   },
+   "keywords": [
+    "synthetic",
+    "example"
+   ],
+   "additionalType": "Dataset record",
+   "creativeWorkStatus": "synthetic example object for software testing",
+   "isBasedOn": [
+    {
+     "@id": "#source-article"
+    }
+   ],
+   "status": "published",
+   "about": [
+    "urban flooding"
+   ],
+   "hasPart": [
+    {
+     "@id": "statement-1.json"
+    }
+   ]
+  },
+  {
+   "@id": "#source-article",
+   "@type": [
+    "ScholarlyArticle"
+   ],
+   "name": "Placeholder source article (synthetic)",
+   "author": [
+    {
+     "@id": "https://example.org/person/author-1"
+    }
+   ]
+  },
+  {
+   "@id": "#concept-flooding",
+   "@type": [
+    "skos:Concept"
+   ],
+   "rdfs:label": "Pluvial flooding",
+   "skos:definition": "Flooding caused by heavy rain."
+  },
+  {
+   "@id": "#concept-city",
+   "@type": [
+    "skos:Concept"
+   ],
+   "rdfs:label": "Synthetic city",
+   "skos:definition": "The city of the synthetic study."
+  },
+  {
+   "@id": "#statement-1",
+   "@type": [
+    "loom:Statement"
+   ],
+   "rdfs:label": "Synthetic test statement 1 (not a finding).",
+   "notation": "LinguisticStatement",
+   "concepts": [
+    {
+     "@id": "#concept-flooding"
+    },
+    {
+     "@id": "#concept-city"
+    }
+   ]
+  },
+  {
+   "@id": "#statement-2",
+   "@type": [
+    "loom:Statement"
+   ],
+   "rdfs:label": "Synthetic test statement 2 (not a finding).",
+   "notation": "LinguisticStatement",
+   "concepts": [
+    {
+     "@id": "#concept-city"
+    }
+   ]
+  },
+  {
+   "@id": "statement-1.json",
+   "@type": [
+    "File"
+   ],
+   "name": "statement-1.json",
+   "encodingFormat": "application/ld+json",
+   "contentSize": 2048,
+   "supports": [
+    {
+     "@id": "#statement-1"
+    }
+   ]
+  },
+  {
+   "@id": "https://knowledgeloom.science/profile/record/0.1.0",
+   "@type": [
+    "CreativeWork",
+    "Profile"
+   ],
+   "name": "Knowledge Loom Record RO-Crate Profile 0.1.0 (candidate URI)"
+  },
+  {
+   "@id": "https://creativecommons.org/licenses/by/4.0/",
+   "@type": "CreativeWork",
+   "name": "CC BY 4.0"
+  },
+  {
+   "@id": "#fixture-builder",
+   "@type": "Organization",
+   "name": "Test fixture builder (synthetic object)"
+  },
+  {
+   "@id": "https://example.org/person/author-1",
+   "@type": "Person",
+   "name": "Example Author 1",
+   "givenName": "Example",
+   "familyName": "Author 1"
+  }
+ ]
+}

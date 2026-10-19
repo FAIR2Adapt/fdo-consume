@@ -1,0 +1,116 @@
+{
+ "@context": [
+  "https://w3id.org/ro/crate/1.2/context",
+  {
+   "hasPolicy": "http://www.w3.org/ns/odrl/2/hasPolicy",
+   "accessRights": "http://purl.org/dc/terms/accessRights",
+   "hasClaim": "https://schema.org/hasClaim",
+   "isReferencedBy": "http://purl.org/dc/terms/isReferencedBy",
+   "dataCollector": "https://w3id.org/citedcat-ap/dataCollector",
+   "source": "http://purl.org/dc/terms/source",
+   "dataNature": "https://w3id.org/ro/terms/cca/dataNature",
+   "hasSensitivityLevel": "https://w3id.org/dpv#hasSensitivityLevel",
+   "format": "http://purl.org/dc/terms/format",
+   "sha256": "https://w3id.org/fair2adapt/urban-pfr#sha256",
+   "iadopt": "https://w3id.org/iadopt/ont/"
+  }
+ ],
+ "@graph": [
+  {
+   "@id": "ro-crate-metadata.json",
+   "@type": "CreativeWork",
+   "conformsTo": {
+    "@id": "https://w3id.org/ro/crate/1.2"
+   },
+   "about": {
+    "@id": "./"
+   }
+  },
+  {
+   "@id": "./",
+   "@type": "Dataset",
+   "identifier": "https://example.org/scenarios/cs3-dashboard/minimum",
+   "name": "Synthetic city: one risk product, minimum",
+   "description": "The must terms only: one product with one FlatGeobuf distribution and one variable, one claim.",
+   "datePublished": "2026-10-15",
+   "conformsTo": {
+    "@id": "https://w3id.org/cc-crate-profile/0.9"
+   },
+   "hasPart": [
+    {
+     "@id": "#product-risk"
+    }
+   ],
+   "hasClaim": [
+    {
+     "@id": "#claim-1"
+    }
+   ]
+  },
+  {
+   "@id": "#product-risk",
+   "@type": "Dataset",
+   "name": "Pluvial flood risk cells",
+   "identifier": "https://example.org/scenarios/cs3-dashboard/product/risk",
+   "description": "Pluvial flood risk cells, one value per cell (synthetic values).",
+   "distribution": [
+    {
+     "@id": "public/risk.fgb"
+    }
+   ],
+   "variableMeasured": [
+    {
+     "@id": "#var-PFRMA"
+    }
+   ]
+  },
+  {
+   "@id": "public/risk.fgb",
+   "@type": [
+    "File",
+    "DataDownload"
+   ],
+   "name": "public/risk.fgb",
+   "contentUrl": "public/risk.fgb",
+   "encodingFormat": "application/flatgeobuf"
+  },
+  {
+   "@id": "#var-PFRMA",
+   "@type": "PropertyValue",
+   "name": "PFRMA",
+   "propertyID": {
+    "@id": "https://example.org/scenarios/cs3-dashboard/variable/PFRMA"
+   }
+  },
+  {
+   "@id": "#claim-1",
+   "@type": "Claim",
+   "text": "Synthetic test statement 1 (not a finding)."
+  },
+  {
+   "@id": "https://w3id.org/cc-crate-profile/0.9",
+   "@type": [
+    "CreativeWork",
+    "Profile"
+   ],
+   "name": "CCA-Crate profile 0.9 (IRI as the profile text names it)"
+  },
+  {
+   "@id": "https://creativecommons.org/licenses/by/4.0/",
+   "@type": "CreativeWork",
+   "name": "CC BY 4.0"
+  },
+  {
+   "@id": "#fixture-builder",
+   "@type": "Organization",
+   "name": "Test fixture builder (synthetic object)"
+  },
+  {
+   "@id": "https://example.org/person/author-1",
+   "@type": "Person",
+   "name": "Example Author 1",
+   "givenName": "Example",
+   "familyName": "Author 1"
+  }
+ ]
+}

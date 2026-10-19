@@ -1,0 +1,400 @@
+{
+ "@context": [
+  "https://w3id.org/ro/crate/1.3/context",
+  {
+   "loom": "https://knowledgeloom.science/",
+   "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+   "skos": "http://www.w3.org/2004/02/skos/core#",
+   "rdfs:label": "http://www.w3.org/2000/01/rdf-schema#label",
+   "skos:definition": "http://www.w3.org/2004/02/skos/core#definition",
+   "rdfs:seeAlso": {
+    "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+    "@type": "@id"
+   },
+   "skos:exactMatch": {
+    "@id": "http://www.w3.org/2004/02/skos/core#exactMatch",
+    "@type": "@id"
+   },
+   "skos:closeMatch": {
+    "@id": "http://www.w3.org/2004/02/skos/core#closeMatch",
+    "@type": "@id"
+   },
+   "concepts": {
+    "@id": "loom:concepts",
+    "@type": "@id"
+   },
+   "notation": "loom:notation",
+   "supports": {
+    "@id": "loom:supports",
+    "@type": "@id"
+   },
+   "components": {
+    "@id": "loom:components",
+    "@type": "@id"
+   }
+  }
+ ],
+ "@graph": [
+  {
+   "@id": "ro-crate-metadata.json",
+   "@type": "CreativeWork",
+   "conformsTo": {
+    "@id": "https://w3id.org/ro/crate/1.3"
+   },
+   "about": {
+    "@id": "./"
+   }
+  },
+  {
+   "@id": "./",
+   "@type": "Dataset",
+   "identifier": "https://example.org/stand-in/bremen-loom-record",
+   "name": "Urban pluvial flood risk and social vulnerability for the Bremen demo run (synthetic test record)",
+   "description": "A synthetic Knowledge Loom record used only to test software. Three statements about the Bremen demo run of the urban-pfr toolbox, each supported by an analysis description, a figure and the public HEALPix cell products the run produced. All values are synthetic; the statements are not findings.",
+   "author": [
+    {
+     "@id": "https://example.org/person/author-1"
+    },
+    {
+     "@id": "https://example.org/person/author-2"
+    }
+   ],
+   "datePublished": "2026-10-16",
+   "license": {
+    "@id": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   "isBasedOn": [
+    {
+     "@id": "#source-article"
+    },
+    {
+     "@id": "https://example.org/stand-in/bremen-cca-profile-demo"
+    }
+   ],
+   "status": "unpublished",
+   "about": [
+    "urban pluvial flooding",
+    "social vulnerability",
+    "climate adaptation"
+   ],
+   "publisher": {
+    "@id": "https://example.org/institute"
+   },
+   "conformsTo": {
+    "@id": "https://knowledgeloom.science/profile/record/0.1.0"
+   },
+   "hasPart": [
+    {
+     "@id": "outputs/risk_healpix.fgb"
+    },
+    {
+     "@id": "outputs/risk_healpix.pmtiles"
+    },
+    {
+     "@id": "outputs/vulnerability_healpix.fgb"
+    },
+    {
+     "@id": "outputs/vulnerability_healpix.pmtiles"
+    },
+    {
+     "@id": "run-parameters.json"
+    },
+    {
+     "@id": "analyses/analysis-1-risk-hotspots.json"
+    },
+    {
+     "@id": "analyses/analysis-2-risk-assessment.json"
+    },
+    {
+     "@id": "analyses/analysis-3-vulnerability.json"
+    },
+    {
+     "@id": "figures/figure-1-risk-cells.png"
+    },
+    {
+     "@id": "figures/figure-2-vulnerability-background.png"
+    },
+    {
+     "@id": "figures/figure-3-vulnerability-drivers.png"
+    },
+    {
+     "@id": "code/compute_risk_demo.py"
+    },
+    {
+     "@id": "code/compute_vulnerability_demo.py"
+    },
+    {
+     "@id": "code/aggregate_healpix_demo.py"
+    }
+   ]
+  },
+  {
+   "@id": "https://knowledgeloom.science/profile/record/0.1.0",
+   "@type": [
+    "CreativeWork",
+    "Profile"
+   ],
+   "name": "Knowledge Loom Record RO-Crate Profile 0.1.0 (candidate URI)"
+  },
+  {
+   "@id": "https://creativecommons.org/licenses/by/4.0/",
+   "@type": "CreativeWork",
+   "name": "CC BY 4.0"
+  },
+  {
+   "@id": "https://example.org/institute",
+   "@type": "Organization",
+   "name": "Example Institute",
+   "url": "https://example.org/"
+  },
+  {
+   "@id": "https://example.org/person/author-1",
+   "@type": "Person",
+   "name": "Example Author 1",
+   "givenName": "Example",
+   "familyName": "Author 1"
+  },
+  {
+   "@id": "https://example.org/person/author-2",
+   "@type": "Person",
+   "name": "Example Author 2",
+   "givenName": "Example",
+   "familyName": "Author 2"
+  },
+  {
+   "@id": "#source-article",
+   "@type": "ScholarlyArticle",
+   "name": "Placeholder source article (synthetic; metadata not yet available)",
+   "author": [
+    {
+     "@id": "https://example.org/person/author-1"
+    }
+   ]
+  },
+  {
+   "@id": "https://example.org/stand-in/bremen-cca-profile-demo",
+   "@type": "Dataset",
+   "name": "Bremen urban pluvial flood risk and social vulnerability: HEALPix cell products (synthetic Data FDO)",
+   "conformsTo": {
+    "@id": "https://w3id.org/cca-crate-profile/0.9"
+   }
+  },
+  {
+   "@id": "#concept-city",
+   "@type": [
+    "skos:Concept"
+   ],
+   "rdfs:label": "Bremen",
+   "skos:definition": "The city of the demo run; values are synthetic.",
+   "rdfs:seeAlso": "https://example.org/concept/bremen"
+  },
+  {
+   "@id": "#concept-flooding",
+   "@type": [
+    "skos:Concept"
+   ],
+   "rdfs:label": "Pluvial flooding",
+   "skos:definition": "Flooding caused by heavy rain.",
+   "rdfs:seeAlso": "https://example.org/concept/pluvial-flooding"
+  },
+  {
+   "@id": "#concept-vulnerability",
+   "@type": [
+    "skos:Concept"
+   ],
+   "rdfs:label": "Social vulnerability",
+   "skos:definition": "The degree to which a population is susceptible to harm from hazards.",
+   "rdfs:seeAlso": "https://example.org/concept/social-vulnerability"
+  },
+  {
+   "@id": "#concept-area-a",
+   "@type": [
+    "skos:Concept"
+   ],
+   "rdfs:label": "Area A",
+   "skos:definition": "A synthetic area label used in the test.",
+   "rdfs:seeAlso": "https://example.org/concept/area-a"
+  },
+  {
+   "@id": "#concept-area-b",
+   "@type": [
+    "skos:Concept"
+   ],
+   "rdfs:label": "Area B",
+   "skos:definition": "A synthetic area label used in the test.",
+   "rdfs:seeAlso": "https://example.org/concept/area-b"
+  },
+  {
+   "@id": "#1b7c0e2a-5f3d-4a9e-8c21-6d4e9f0a1b2c",
+   "@type": [
+    "loom:Statement"
+   ],
+   "rdfs:label": "Synthetic test statement 1 for the Bremen demo run (not a finding).",
+   "notation": "LinguisticStatement",
+   "concepts": [
+    {
+     "@id": "#concept-city"
+    },
+    {
+     "@id": "#concept-flooding"
+    },
+    {
+     "@id": "#concept-area-a"
+    }
+   ]
+  },
+  {
+   "@id": "#2c8d1f3b-6a4e-4b0f-9d32-7e5f0a1b2c3d",
+   "@type": [
+    "loom:Statement"
+   ],
+   "rdfs:label": "Synthetic test statement 2 for the Bremen demo run (not a finding).",
+   "notation": "LinguisticStatement",
+   "concepts": [
+    {
+     "@id": "#concept-city"
+    },
+    {
+     "@id": "#concept-vulnerability"
+    }
+   ]
+  },
+  {
+   "@id": "#3d9e2a4c-7b5f-4c1a-ae43-8f6a1b2c3d4e",
+   "@type": [
+    "loom:Statement"
+   ],
+   "rdfs:label": "Synthetic test statement 3 for the Bremen demo run (not a finding).",
+   "notation": "LinguisticStatement",
+   "concepts": [
+    {
+     "@id": "#concept-area-a"
+    },
+    {
+     "@id": "#concept-area-b"
+    },
+    {
+     "@id": "#concept-vulnerability"
+    }
+   ]
+  },
+  {
+   "@id": "analyses/analysis-1-risk-hotspots.json",
+   "@type": "File",
+   "name": "Analysis description supporting the statement #1b7c0e2a-5f3d-4a9e-8c21-6d4e9f0a1b2c",
+   "encodingFormat": "application/ld+json",
+   "supports": [
+    {
+     "@id": "#1b7c0e2a-5f3d-4a9e-8c21-6d4e9f0a1b2c"
+    }
+   ],
+   "components": []
+  },
+  {
+   "@id": "analyses/analysis-2-risk-assessment.json",
+   "@type": "File",
+   "name": "Analysis description supporting the statement #2c8d1f3b-6a4e-4b0f-9d32-7e5f0a1b2c3d",
+   "encodingFormat": "application/ld+json",
+   "supports": [
+    {
+     "@id": "#2c8d1f3b-6a4e-4b0f-9d32-7e5f0a1b2c3d"
+    }
+   ],
+   "components": []
+  },
+  {
+   "@id": "analyses/analysis-3-vulnerability.json",
+   "@type": "File",
+   "name": "Analysis description supporting the statement #3d9e2a4c-7b5f-4c1a-ae43-8f6a1b2c3d4e",
+   "encodingFormat": "application/ld+json",
+   "supports": [
+    {
+     "@id": "#3d9e2a4c-7b5f-4c1a-ae43-8f6a1b2c3d4e"
+    }
+   ],
+   "components": []
+  },
+  {
+   "@id": "outputs/risk_healpix.fgb",
+   "@type": "File",
+   "name": "Pluvial flood risk per HEALPix cell (FlatGeobuf)",
+   "encodingFormat": "application/flatgeobuf",
+   "contentSize": 2005360,
+   "isBasedOn": {
+    "@id": "https://example.org/stand-in/bremen/product/risk-healpix"
+   }
+  },
+  {
+   "@id": "outputs/risk_healpix.pmtiles",
+   "@type": "File",
+   "name": "Pluvial flood risk per HEALPix cell (PMTiles)",
+   "encodingFormat": "application/vnd.pmtiles",
+   "contentSize": 1930507,
+   "isBasedOn": {
+    "@id": "https://example.org/stand-in/bremen/product/risk-healpix"
+   }
+  },
+  {
+   "@id": "outputs/vulnerability_healpix.fgb",
+   "@type": "File",
+   "name": "Social vulnerability per HEALPix cell (FlatGeobuf)",
+   "encodingFormat": "application/flatgeobuf",
+   "contentSize": 1819384,
+   "isBasedOn": {
+    "@id": "https://example.org/stand-in/bremen/product/vulnerability-healpix"
+   }
+  },
+  {
+   "@id": "outputs/vulnerability_healpix.pmtiles",
+   "@type": "File",
+   "name": "Social vulnerability per HEALPix cell (PMTiles)",
+   "encodingFormat": "application/vnd.pmtiles",
+   "contentSize": 4744750,
+   "isBasedOn": {
+    "@id": "https://example.org/stand-in/bremen/product/vulnerability-healpix"
+   }
+  },
+  {
+   "@id": "run-parameters.json",
+   "@type": "File",
+   "name": "Input values recorded for the demo run",
+   "encodingFormat": "application/json"
+  },
+  {
+   "@id": "figures/figure-1-risk-cells.png",
+   "@type": "File",
+   "name": "Figure 1: pluvial flood risk per cell (Bremen demo run; synthetic values)",
+   "encodingFormat": "image/png"
+  },
+  {
+   "@id": "figures/figure-2-vulnerability-background.png",
+   "@type": "File",
+   "name": "Figure 2: risk cells over the social vulnerability background (Bremen demo run; synthetic values)",
+   "encodingFormat": "image/png"
+  },
+  {
+   "@id": "figures/figure-3-vulnerability-drivers.png",
+   "@type": "File",
+   "name": "Figure 3: risk cells over the vulnerability drivers (Bremen demo run; synthetic values)",
+   "encodingFormat": "image/png"
+  },
+  {
+   "@id": "code/compute_risk_demo.py",
+   "@type": "File",
+   "name": "risk computation call of the demo run",
+   "encodingFormat": "text/x-python"
+  },
+  {
+   "@id": "code/compute_vulnerability_demo.py",
+   "@type": "File",
+   "name": "vulnerability computation call of the demo run",
+   "encodingFormat": "text/x-python"
+  },
+  {
+   "@id": "code/aggregate_healpix_demo.py",
+   "@type": "File",
+   "name": "HEALPix aggregation call of the demo run",
+   "encodingFormat": "text/x-python"
+  }
+ ]
+}

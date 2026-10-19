@@ -1,0 +1,330 @@
+{
+ "@context": [
+  "https://w3id.org/ro/crate/1.2/context",
+  {
+   "hasPolicy": "http://www.w3.org/ns/odrl/2/hasPolicy",
+   "accessRights": "http://purl.org/dc/terms/accessRights",
+   "hasClaim": "https://schema.org/hasClaim",
+   "isReferencedBy": "http://purl.org/dc/terms/isReferencedBy",
+   "dataCollector": "https://w3id.org/citedcat-ap/dataCollector",
+   "source": "http://purl.org/dc/terms/source",
+   "dataNature": "https://w3id.org/ro/terms/cca/dataNature",
+   "hasSensitivityLevel": "https://w3id.org/dpv#hasSensitivityLevel",
+   "format": "http://purl.org/dc/terms/format",
+   "sha256": "https://w3id.org/fair2adapt/urban-pfr#sha256",
+   "iadopt": "https://w3id.org/iadopt/ont/"
+  }
+ ],
+ "@graph": [
+  {
+   "@id": "ro-crate-metadata.json",
+   "@type": "CreativeWork",
+   "conformsTo": {
+    "@id": "https://w3id.org/ro/crate/1.2"
+   },
+   "about": {
+    "@id": "./"
+   }
+  },
+  {
+   "@id": "./",
+   "@type": "Dataset",
+   "identifier": "https://example.org/scenarios/cs3-dashboard/full",
+   "name": "Synthetic city: pluvial flood risk and social vulnerability cell products",
+   "description": "Two map products in the shape the CS3 dashboard reads, with their variables, class breaks, access terms and claims. Synthetic values.",
+   "datePublished": "2026-10-15",
+   "license": {
+    "@id": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   "conformsTo": {
+    "@id": "https://w3id.org/cc-crate-profile/0.9"
+   },
+   "author": {
+    "@id": "https://example.org/person/author-1"
+   },
+   "publisher": {
+    "@id": "#fixture-builder"
+   },
+   "keywords": [
+    "synthetic",
+    "example"
+   ],
+   "additionalType": "Dataset record",
+   "creativeWorkStatus": "synthetic example object for software testing",
+   "hasPart": [
+    {
+     "@id": "#product-risk"
+    },
+    {
+     "@id": "#product-vulnerability"
+    },
+    {
+     "@id": "knowledge/"
+    }
+   ],
+   "hasClaim": [
+    {
+     "@id": "#claim-1"
+    },
+    {
+     "@id": "#claim-2"
+    }
+   ],
+   "accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "conditionsOfAccess": "open; no registration",
+   "hasPolicy": {
+    "@id": "#policy-open"
+   },
+   "spatialCoverage": {
+    "@id": "#extent"
+   }
+  },
+  {
+   "@id": "#product-risk",
+   "@type": "Dataset",
+   "name": "Pluvial flood risk cells",
+   "identifier": "https://example.org/scenarios/cs3-dashboard/product/risk",
+   "description": "Pluvial flood risk cells, one value per cell (synthetic values).",
+   "distribution": [
+    {
+     "@id": "public/risk.fgb"
+    },
+    {
+     "@id": "public/risk.pmtiles"
+    }
+   ],
+   "variableMeasured": [
+    {
+     "@id": "#var-PFRMA"
+    },
+    {
+     "@id": "#var-PFRWB"
+    }
+   ],
+   "additionalProperty": [
+    {
+     "@id": "#classification-risk"
+    }
+   ],
+   "license": {
+    "@id": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   "accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "conditionsOfAccess": "open; no registration",
+   "dataCollector": {
+    "@id": "#fixture-builder"
+   },
+   "source": "synthetic toolbox run",
+   "dataNature": "derived indicator",
+   "spatialCoverage": {
+    "@id": "#extent"
+   },
+   "hasSensitivityLevel": "none",
+   "format": "FlatGeobuf; PMTiles"
+  },
+  {
+   "@id": "public/risk.fgb",
+   "@type": [
+    "File",
+    "DataDownload"
+   ],
+   "name": "public/risk.fgb",
+   "contentUrl": "public/risk.fgb",
+   "encodingFormat": "application/flatgeobuf",
+   "contentSize": 2048,
+   "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "@id": "public/risk.pmtiles",
+   "@type": [
+    "File",
+    "DataDownload"
+   ],
+   "name": "public/risk.pmtiles",
+   "contentUrl": "public/risk.pmtiles",
+   "encodingFormat": "application/vnd.pmtiles",
+   "contentSize": 4096,
+   "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "@id": "#var-PFRMA",
+   "@type": "PropertyValue",
+   "name": "PFRMA",
+   "propertyID": {
+    "@id": "https://example.org/scenarios/cs3-dashboard/variable/PFRMA"
+   },
+   "unitCode": {
+    "@id": "http://qudt.org/vocab/unit/UNITLESS"
+   },
+   "unitText": "index 0-1",
+   "description": "pluvial flood risk, mobility and accessibility"
+  },
+  {
+   "@id": "#var-PFRWB",
+   "@type": "PropertyValue",
+   "name": "PFRWB",
+   "propertyID": {
+    "@id": "https://example.org/scenarios/cs3-dashboard/variable/PFRWB"
+   },
+   "unitCode": {
+    "@id": "http://qudt.org/vocab/unit/UNITLESS"
+   },
+   "unitText": "index 0-1",
+   "description": "pluvial flood risk, well-being"
+  },
+  {
+   "@id": "#classification-risk",
+   "@type": "PropertyValue",
+   "name": "classBreaks",
+   "value": "{\"method\": \"quantile\", \"breaks_ma\": [0.1, 0.2, 0.3], \"breaks_wb\": [0.1, 0.2, 0.3]}"
+  },
+  {
+   "@id": "#product-vulnerability",
+   "@type": "Dataset",
+   "name": "Social vulnerability cells",
+   "identifier": "https://example.org/scenarios/cs3-dashboard/product/vulnerability",
+   "description": "Social vulnerability cells, one value per cell (synthetic values).",
+   "distribution": [
+    {
+     "@id": "public/vulnerability.fgb"
+    }
+   ],
+   "variableMeasured": [
+    {
+     "@id": "#var-SVPF"
+    }
+   ],
+   "additionalProperty": [
+    {
+     "@id": "#classification-vulnerability"
+    }
+   ],
+   "license": {
+    "@id": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   "accessRights": {
+    "@id": "http://publications.europa.eu/resource/authority/access-right/PUBLIC"
+   },
+   "conditionsOfAccess": "open; no registration",
+   "dataCollector": {
+    "@id": "#fixture-builder"
+   },
+   "source": "synthetic toolbox run",
+   "dataNature": "derived indicator",
+   "spatialCoverage": {
+    "@id": "#extent"
+   },
+   "hasSensitivityLevel": "none",
+   "format": "FlatGeobuf; PMTiles"
+  },
+  {
+   "@id": "public/vulnerability.fgb",
+   "@type": [
+    "File",
+    "DataDownload"
+   ],
+   "name": "public/vulnerability.fgb",
+   "contentUrl": "public/vulnerability.fgb",
+   "encodingFormat": "application/flatgeobuf",
+   "contentSize": 2048,
+   "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  {
+   "@id": "#var-SVPF",
+   "@type": "PropertyValue",
+   "name": "SVPF",
+   "propertyID": {
+    "@id": "https://example.org/scenarios/cs3-dashboard/variable/SVPF"
+   },
+   "unitCode": {
+    "@id": "http://qudt.org/vocab/unit/UNITLESS"
+   },
+   "unitText": "index 0-1",
+   "description": "social vulnerability to pluvial flooding"
+  },
+  {
+   "@id": "#classification-vulnerability",
+   "@type": "PropertyValue",
+   "name": "classBreaks",
+   "value": "{\"method\": \"quartiles\", \"breaks_sv\": [0.25, 0.5, 0.75]}"
+  },
+  {
+   "@id": "knowledge/",
+   "@type": "Dataset",
+   "name": "Knowledge Loom record of the synthetic study (asserting record of the claims)",
+   "conformsTo": {
+    "@id": "https://knowledgeloom.science/profile/record/0.1.0"
+   },
+   "identifier": "https://example.org/scenarios/loom-record/full"
+  },
+  {
+   "@id": "#claim-1",
+   "@type": "Claim",
+   "text": "Synthetic test statement 1 (not a finding).",
+   "isReferencedBy": {
+    "@id": "knowledge/"
+   },
+   "about": {
+    "@id": "#product-risk"
+   }
+  },
+  {
+   "@id": "#claim-2",
+   "@type": "Claim",
+   "text": "Synthetic test statement 2 (not a finding).",
+   "isReferencedBy": {
+    "@id": "knowledge/"
+   },
+   "about": {
+    "@id": "#product-vulnerability"
+   }
+  },
+  {
+   "@id": "#policy-open",
+   "@type": "http://www.w3.org/ns/odrl/2/Policy",
+   "name": "open access policy (synthetic)"
+  },
+  {
+   "@id": "#extent",
+   "@type": "Place",
+   "name": "synthetic city extent",
+   "geo": {
+    "@id": "#extent-box"
+   }
+  },
+  {
+   "@id": "#extent-box",
+   "@type": "GeoShape",
+   "box": "53.3 9.7 53.8 10.4"
+  },
+  {
+   "@id": "https://w3id.org/cc-crate-profile/0.9",
+   "@type": [
+    "CreativeWork",
+    "Profile"
+   ],
+   "name": "CCA-Crate profile 0.9 (IRI as the profile text names it)"
+  },
+  {
+   "@id": "https://creativecommons.org/licenses/by/4.0/",
+   "@type": "CreativeWork",
+   "name": "CC BY 4.0"
+  },
+  {
+   "@id": "#fixture-builder",
+   "@type": "Organization",
+   "name": "Test fixture builder (synthetic object)"
+  },
+  {
+   "@id": "https://example.org/person/author-1",
+   "@type": "Person",
+   "name": "Example Author 1",
+   "givenName": "Example",
+   "familyName": "Author 1"
+  }
+ ]
+}
