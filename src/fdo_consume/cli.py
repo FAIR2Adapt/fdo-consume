@@ -2,27 +2,30 @@
 from __future__ import annotations
 
 import argparse
-import json
+import sys
 
 from .batch import access_collection, access_many
 from .core import WANTS, exit_code
 from .pipeline import DEPTHS
 from .pipeline.access import access
+from .report import FORMATS, render
 
 
 def _common(cmd: argparse.ArgumentParser) -> None:
     cmd.add_argument("pids", nargs="+", metavar="pid")
-    cmd.add_argument("--contract", default=None, help="a contract name, e.g. card")
+    cmd.add_argument("--contract", default=None, help="a contract name, read from --contracts DIR")
     cmd.add_argument("--source", default="recorded", help="recorded (default) or live (HTTP/HTTPS PIDs)")
     cmd.add_argument("--profile-overlay", dest="overlay", default=None,
                      help="a map that adds terms to the profile (see profiles/maps)")
     cmd.add_argument("--profile", default=None, help="read the object by this map, whatever it declares")
-    cmd.add_argument("--contracts", default=None, metavar="DIR", help="the consumer's own contract folder, searched first")
+    cmd.add_argument("--contracts", default=None, metavar="DIR", help="the consumer's contract folder, searched first")
     cmd.add_argument("--profile-maps", default=None, metavar="DIR", help="extra profile maps (YAML)")
     cmd.add_argument("--recorded-dir", dest="fixtures", default=None, metavar="DIR",
                      help="folder of recorded objects")
     cmd.add_argument("--log-path", dest="log", default=None, metavar="FILE", help="append each record as a line")
     cmd.add_argument("--collection", action="store_true", help="the PID names a collection")
+    cmd.add_argument("--report", default="json", choices=FORMATS, help="output format (default json)")
+    cmd.add_argument("--out", default=None, metavar="FILE", help="write the output to this file instead of stdout")
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -69,5 +72,14 @@ def main(argv: list[str] | None = None) -> int:
         result = access_many(args.pids, **options)
         records = result["records"]
 
-    print(json.dumps(result, indent=2, ensure_ascii=False))
+    text = render(result, args.report)
+    if args.out:
+        try:
+            with open(args.out, "w", encoding="utf-8") as handle:
+                handle.write(text if text.endswith("\n") else text + "\n")
+        except OSError as error:
+            print(f"cannot write {args.out}: {error.strerror or error}", file=sys.stderr)
+            return 2
+    else:
+        print(text)
     return exit_code(records, no_members)

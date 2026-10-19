@@ -152,4 +152,3 @@ def _identity(pid: str, identifiers: list[str]) -> Step:
         stated += f", and {len(identifiers) - SHOWN} more"
     detail = f"asked for {pid}; the crate states {stated}"
     return Step("describe", "O1", "identity", FAIL, detail)
-

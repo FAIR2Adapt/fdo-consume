@@ -1,4 +1,4 @@
-"""The consumer contract: what one named consumer needs, and where each need comes from."""
+"""Consumer contract model: the needs-form specification and its internal must/should representation."""
 from __future__ import annotations
 
 from collections.abc import Mapping
@@ -29,7 +29,7 @@ def as_internal(spec: Mapping) -> dict:
 
 
 def _consumer_name(consumer: object) -> str:
-    """The consumer as one line: service and capability."""
+    """Consumer label: service and capability joined into one string."""
     if isinstance(consumer, Mapping):
         return f"{consumer.get('service')}: {consumer.get('capability')}"
     return str(consumer)

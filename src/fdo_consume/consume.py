@@ -1,4 +1,4 @@
-"""Public calls: a PID and a contract in, a ConsumptionResult (binding and record) out."""
+"""Public API: consume one object, several contracts, or a collection; results carry the binding and the record."""
 from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
@@ -17,9 +17,10 @@ class ConsumptionResult:
 
     @property
     def is_usable(self) -> bool:
-        """Read, compatible with the contract (PASS or PARTIAL) and a binding delivered."""
-        return (self.record.outcome == "ok" and self.record.compatibility["status"] in ("PASS", "PARTIAL")
-                and self.binding is not None)
+        """Resolved, compatible with the contract (PASS or PARTIAL) and a binding delivered; an object whose terms could
+        not be expanded (resolution INDETERMINATE) is not usable, whatever the fallback reader found in its raw keys."""
+        return (self.record.outcome == "ok" and self.record.resolution["status"] in ("PASS", "PARTIAL")
+                and self.record.compatibility["status"] in ("PASS", "PARTIAL") and self.binding is not None)
 
     @property
     def statuses(self) -> dict:
@@ -84,14 +85,25 @@ def consume(pid: str, contract: str | Mapping, *, contracts: str | None = None, 
     return ConsumptionResult(record, record.value if isinstance(record.value, dict) else None)
 
 
+def describe(pid: str, *, source: str = "recorded", recorded_dir: str | None = None, profile_maps: str | None = None,
+             profile_overlay: str | None = None, profile: str | None = None, limits: Limits | None = None,
+             infer_media_type: bool = True, log_path: str | None = None) -> AccessRecord:
+    """Read the object at `pid` through its profile map, without a consumer contract. The record's descriptor holds the
+    root fields, the entities and the declared resources; resolution and validation are judged, compatibility is not."""
+    return access(pid, depth="describe", source=source, fixtures=recorded_dir, profile_maps=profile_maps, overlay=profile_overlay,
+                  limits=limits, log=log_path, infer_media=infer_media_type, profile=profile)
+
+
 def _snapshot(pid: str, options: dict):
     """Locate `pid` once; None when the locator raises (each contract then reports the error)."""
+    if not isinstance(pid, str):
+        return None
     try:
         locator = registry.get("locator", options.get("source", "recorded"))
         located = locator(pid.strip(), {"fixtures": options.get("recorded_dir")}, options.get("limits") or Limits())
         refuse_large_crate(located.size, options.get("limits") or Limits())
         return located
-    except (AccessError, KeyError, TypeError, AttributeError):
+    except (AccessError, KeyError):
         return None
 
 

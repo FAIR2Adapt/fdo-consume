@@ -37,7 +37,7 @@ def access(pid: str, contract: str | Mapping | None = None, depth: str = "match"
     if isinstance(pid, str):
         pid = pid.strip()
     asked = {"contract": contract, "depth": depth, "source": source, "want": want}
-    request = {"pid": _pid_as_asked(pid)}
+    request = {"pid": pid_as_asked(pid)}
     for key, value in asked.items():
         request[key] = plain(value)
     if isinstance(depth, str) and depth in ALIASES:
@@ -60,11 +60,6 @@ def access(pid: str, contract: str | Mapping | None = None, depth: str = "match"
 
 
 def pid_as_asked(pid: object) -> str:
-    """The PID for the record: a string as it is, anything else as its repr."""
-    return _pid_as_asked(pid)
-
-
-def _pid_as_asked(pid: object) -> str:
     """The PID for the record: a string as it is, anything else as its repr."""
     if isinstance(pid, str):
         return pid

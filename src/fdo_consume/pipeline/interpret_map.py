@@ -1,4 +1,4 @@
-"""Interpret an object through a profile map: the canonical graph in, one FDODescription out."""
+"""Interpretation of the canonical graph through a profile map into one Descriptor."""
 from __future__ import annotations
 
 from ..core import FAIL, PARTIAL, PASS, AccessError, CanonicalGraph, Descriptor, Part, Step, clip, has_scheme
@@ -70,7 +70,9 @@ def interpret_map(pid: str, graph: CanonicalGraph, selection: ProfileSelection,
         raise AccessError("object.no_root", "the metadata descriptor names no root entity")
     spec = maps[selection.selected]
     extra_map = maps[overlay] if overlay else None
+    dropped = ""
     if extra_map is not None and extra_map.get("extends") not in (None, selection.selected):
+        dropped = f"; overlay {overlay} not applied: it extends {extra_map.get('extends')}, not {selection.selected}"
         extra_map, overlay = None, None  # an overlay extends one map
     fields, blocks = merged(spec, extra_map)
 
@@ -85,8 +87,9 @@ def interpret_map(pid: str, graph: CanonicalGraph, selection: ProfileSelection,
     related = _related(graph, root)
     entities = _collect(graph, root, blocks, {r["id"] for r in related})
     root_access = _access(graph, root, fields)
+    by_id = {e["id"]: e for e in entities}   # holders come before what they hold, so their access is set first
     for entity in entities:
-        entity["access"] = _entity_access(graph, entity, blocks[entity["type"]], fields, entities, root_access)
+        entity["access"] = _entity_access(graph, entity, blocks[entity["type"]], fields, by_id, root_access)
     resources = _resources(graph, entities, blocks, infer_media)
     descriptor.parts = [resource.pop("part") for resource in resources]
     descriptor.members, descriptor.members_skipped = _members(graph, root, {r["id"] for r in resources})
@@ -95,7 +98,7 @@ def interpret_map(pid: str, graph: CanonicalGraph, selection: ProfileSelection,
         "resources": resources, "related": related, "identity": spec.get("identity", "identifier"), "overlay": overlay,
     })
     must, should = _levels(graph, root, spec, entities)
-    before = [Step("describe", "P2", "profile_selected", PASS, clip(_selection_detail(selection, overlay)))]
+    before = [Step("describe", "P2", "profile_selected", PASS, clip(_selection_detail(selection, overlay) + dropped))]
     after = [_levels_step(must, should)]
     return descriptor, before, after
 
@@ -193,12 +196,11 @@ def _access(graph: CanonicalGraph, node: str, fields: dict) -> dict:
             "requires_authorization": {"restricted": True, "open": False}.get(state)}
 
 
-def _entity_access(graph: CanonicalGraph, entity: dict, block: dict, fields: dict, entities: list, root_access: dict) -> dict:
+def _entity_access(graph: CanonicalGraph, entity: dict, block: dict, fields: dict, by_id: dict, root_access: dict) -> dict:
     """An entity's own access terms; an entity that states none takes its holder's, else the root's."""
     own = _access(graph, entity["id"], fields)
     if own["rights"] or own["policy"] or own["conditions"] or "type" in block and not entity["holders"]:
         return own
-    by_id = {e["id"]: e for e in entities}
     for holder in entity["holders"]:
         if holder in by_id and "access" in by_id[holder]:
             return by_id[holder]["access"]
@@ -228,10 +230,11 @@ def _resources(graph: CanonicalGraph, entities: list[dict], blocks: dict, infer_
                     restricted=restricted, payload=landing is None, why_not_payload="landing page" if landing else None,
                     media_how=how, in_crate=in_crate)
         rows.append({"id": entity["id"], "type": entity["type"], "holders": entity["holders"], "pid": entity["pid"],
-                     "url": part.url, "in_crate": in_crate, "media_type": media, "media_type_source": how,
+                     "name": f.get("name") or part.name, "url": part.url, "in_crate": in_crate, "media_type": media, "media_type_source": how,
                      "declared_media_type": f.get("media_type"), "size": part.size,
                      "checksum": f.get("checksum"), "payload": part.payload, "why_not_payload": part.why_not_payload,
-                     "access": entity["access"], "part": part})
+                     "access": entity["access"], "fields": {k: v for k, v in f.items() if k not in RESOURCE_CONCEPTS and k != "name"},
+                     "part": part})
     return rows
 
 
@@ -321,7 +324,7 @@ def _shown(items: list[str]) -> str:
 
 
 def _selection_detail(selection: ProfileSelection, overlay: str | None) -> str:
-    """One line: the map used, why, and the spelling of the profile IRI the crate carried."""
+    """Profile-map selection evidence: the map used, why, and the spelling of the profile IRI in the crate."""
     text = f"{selection.selected} ({selection.reason})"
     if selection.spelling:
         text += f"; declared as {selection.spelling}"

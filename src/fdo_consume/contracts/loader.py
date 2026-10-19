@@ -14,8 +14,6 @@ from ..profiles import known_terms, load_maps
 from .model import ALIASES, as_internal, is_new_form
 from .validate import MEDIA_TYPE, check_needs_form
 
-CONTRACTS = Path(__file__).resolve().parent / "data"
-EXAMPLES = Path(__file__).resolve().parent / "examples"
 CONTRACT_NAME = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]*")
 LIST_KEYS = ("must", "should", "accepts", "checks")
 TEXT_KEYS = ("profile", "selector")
@@ -37,12 +35,13 @@ def load_contract(name_or_mapping: str | Mapping, folder: str | Path | None = No
     if folder is not None and not places[0].is_dir():
         raise AccessError("request.bad_contract", f"the contract folder does not exist: {shown(str(folder))}")
     path = None
-    for place in places + [CONTRACTS, EXAMPLES]:
+    for place in places:
         if (place / f"{name}.yaml").is_file():
             path = place / f"{name}.yaml"
             break
     if path is None:
-        raise AccessError("request.bad_contract", f"no contract named {shown(name)}")
+        where = f"in {shown(str(folder))}" if folder is not None else "(a contract by name is read from the consumer's folder: contracts=)"
+        raise AccessError("request.bad_contract", f"no contract named {shown(name)} {where}")
     try:
         spec = _parsed(str(path), path.stat().st_mtime_ns)
     except (yaml.YAMLError, ValueError, RecursionError) as err:

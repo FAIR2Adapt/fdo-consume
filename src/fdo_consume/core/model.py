@@ -20,7 +20,7 @@ class Located:
 
 @dataclass
 class Part:
-    """One file the crate lists: described, never opened."""
+    """Metadata of a resource the crate declares; the resource itself is not read."""
 
     id: str
     name: str | None
@@ -156,8 +156,3 @@ class CanonicalGraph:
                 return None
             parts.append(piece)
         return base.rstrip("/") + "/" + "/".join(parts) if parts else base
-
-LocatedObject = Located
-FDODescription = Descriptor
-Resource = Part
-Delivery = Loaded

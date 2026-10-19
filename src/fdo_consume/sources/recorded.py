@@ -10,7 +10,7 @@ from ..core import (
 )
 from ..registry import register
 
-DEFAULT_FIXTURES = Path(__file__).resolve().parents[3] / "fixtures" / "synthetic"
+DEFAULT_FIXTURES: Path | None = None   # an embedding application may set a folder used when none is passed
 CRATE_FILE = "ro-crate-metadata.json"
 
 
@@ -19,7 +19,7 @@ def locate_recorded(pid: str, options: dict, limits: Limits) -> Located:
     """The recorded crate of `pid`; an unknown PID is not resolved."""
     fixtures = options.get("fixtures")
     root = Path(fixtures) if fixtures else DEFAULT_FIXTURES
-    if not fixtures and not root.is_dir():
+    if not fixtures and (root is None or not root.is_dir()):
         raise AccessError("request.bad_fixtures", "the recorded source needs a fixture folder: pass fixtures=DIR (--fixtures DIR)")
     index = _read_index(root)
 
@@ -36,6 +36,8 @@ def locate_recorded(pid: str, options: dict, limits: Limits) -> Located:
         raise AccessError("request.bad_fixtures", f"pids.json leaves the fixture folder: {path}")
     if not file.is_file():
         raise AccessError("request.bad_fixtures", f"pids.json names no file: {path}")
+    if any(p.is_symlink() for p in (file, file.parent)) or root.resolve() not in file.resolve().parents:
+        raise AccessError("request.bad_fixtures", f"the recorded object is a link outside the fixture folder: {path}")
     refuse_large_crate(file.stat().st_size, limits)
 
     data = file.read_bytes()

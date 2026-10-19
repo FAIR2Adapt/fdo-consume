@@ -11,7 +11,7 @@ fields:
   author_name: {iri: ["https://schema.org/author", "https://schema.org/name"], level: should, many: true}   # section 6: the Person SHOULD have a name
   date: {iri: "https://schema.org/datePublished", level: must}
   licence: {iri: "https://schema.org/license", level: must}
-  based_on: {iri: "https://schema.org/isBasedOn", level: must}
+  based_on: {iri: "https://schema.org/isBasedOn", level: must, many: true}   # a record is based on several things (an article, a data object); every value is kept
   status: {iri: "https://schema.org/status", level: must}
   profile: {iri: "http://purl.org/dc/terms/conformsTo", level: may}
   identifier: {iri: "https://schema.org/identifier", level: may}
@@ -25,20 +25,24 @@ entities:
     type: "https://schema.org/MediaObject"
     role: resource
     fields:
+      name: {iri: "https://schema.org/name", level: may}
       url: {iri: "https://schema.org/contentUrl", level: may}
       media_type: {iri: "https://schema.org/encodingFormat", level: should}
       size: {iri: "https://schema.org/contentSize", level: may}
+      supports: {iri: "https://knowledgeloom.science/supports", level: may, many: true}   # reserved Loom term; a file that supports statements
   Statement:
     type: "https://knowledgeloom.science/Statement"
     provides: [Assertion]
     fields:
       label: {iri: "http://www.w3.org/2000/01/rdf-schema#label", level: must}
       notation: {iri: "https://knowledgeloom.science/notation", level: must}
-      concepts: {iri: "https://knowledgeloom.science/concepts", level: may}
+      concepts: {iri: "https://knowledgeloom.science/concepts", level: may, many: true}
   Concept:
     type: "http://www.w3.org/2004/02/skos/core#Concept"
     fields:
       label: {iri: "http://www.w3.org/2000/01/rdf-schema#label", level: should}
+      definition: {iri: "http://www.w3.org/2004/02/skos/core#definition", level: may}
+      see_also: {iri: "http://www.w3.org/2000/01/rdf-schema#seeAlso", level: may}
 rules:
   - when: {field: status, equals: published}
     require: {entity: Statement, min: 1}

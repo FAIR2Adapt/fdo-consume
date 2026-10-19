@@ -11,7 +11,7 @@ MEDIA_TYPE = re.compile(r"[a-z0-9][a-z0-9!#$&^_.+-]*/[a-z0-9][a-z0-9!#$&^_.+-]*"
 
 
 def check_needs_form(spec: Mapping, label: str, terms: set) -> None:
-    """Refuse a needs-form contract that has no consumer, no source, a bad need, or no requirements."""
+    """Refuse a needs-form contract that has no consumer, a bad need, or no requirements."""
     for key in spec:
         if key not in NEW_KEYS:
             _refuse(f"unknown key in {label}: {shown(key)}")
@@ -21,6 +21,9 @@ def check_needs_form(spec: Mapping, label: str, terms: set) -> None:
         _refuse(f"{label} has no contract_id")
     needs = spec["needs"]
     accepts = spec.get("accepts", [])
+    for key in ("profile", "profile_additions"):
+        if key in spec and not isinstance(spec[key], str):
+            _refuse(f"{key} is not text in {label}")
     if not isinstance(needs, list) or not isinstance(accepts, list):
         _refuse(f"needs and accepts are lists in {label}")
     if not needs and not accepts:
@@ -37,25 +40,27 @@ def check_needs_form(spec: Mapping, label: str, terms: set) -> None:
 
 
 def _check_need(need: object, label: str, terms: set) -> None:
-    """One need: a concept some profile map defines, a level, a source and a reason."""
+    """One need: a term some profile map defines and a level; source and reason are optional text."""
     if not isinstance(need, Mapping):
         _refuse(f"a need in {label} is not a mapping")
-    term = ALIASES.get(need.get("term"), need.get("term"))
+    if not isinstance(need.get("term"), str):
+        _refuse(f"{label}: a need has no term, or a term that is not text: {shown(need.get('term'))}")
+    term = ALIASES.get(need["term"], need["term"])
     if term not in terms:
         _refuse(f"{label} names a term no profile map defines: {shown(need.get('term'))}; known terms: {', '.join(sorted(terms))}")
     if need.get("level") not in LEVELS:
         _refuse(f"{label}: {need['term']} has level {shown(need.get('level'))}; one of {LEVELS}")
     for key in ("source", "reason"):
-        if not str(need.get(key, "")).strip():
-            _refuse(f"{label}: the need {need['term']} has no {key}")
+        if key in need and not isinstance(need[key], str):
+            _refuse(f"{label}: the {key} of the need {need['term']} is not text")
 
 
 def _check_source(value: object, label: str) -> None:
-    """Provenance: repository, path, reviewed (revision, symbol, note optional); legacy form document + section."""
-    if isinstance(value, Mapping) and "repository" in value:
-        _named(value, ("repository", "path", "reviewed"), "source", label)
-    else:
-        _named(value, ("document", "section"), "source", label)
+    """Optional provenance of the contract: a mapping of text values (repository, path, document, section, ...)."""
+    if value is None:
+        return
+    if not isinstance(value, Mapping) or any(not isinstance(v, str) for v in value.values()):
+        _refuse(f"{label} has a source that is not a mapping of text values")
 
 
 def _named(value: object, keys: tuple, name: str, label: str) -> None:

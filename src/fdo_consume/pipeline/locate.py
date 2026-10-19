@@ -49,5 +49,3 @@ def _adapter(kind: str, name: str, code: str):
     except (KeyError, TypeError):
         known = ", ".join(registry.names(kind))
         raise AccessError(code, f"unknown {kind}: {shown(name)}; known: {known}") from None
-
-

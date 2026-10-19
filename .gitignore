@@ -1,21 +1,20 @@
 __pycache__/
-*.pyc
-build/
-*.egg-info/
+*.py[cod]
+.pytest_cache/
 .venv/
-# Environment variables
+build/
+dist/
+*.egg-info/
+
 .env
 .env.*
-# IDE
 .idea/
 .vscode/
-# Temporary files
+
 *.log
 *.tmp
-# local only: tests, examples, notes and private maps stay out of the repository
-/tests/
-/examples/
-/docs/
+
 /private-maps/
-*.md
-!README.md
+/private-notes/
+
+/tests-local/

@@ -151,7 +151,9 @@
      "payload",
      "why_not_payload",
      "access",
-     "accepted"
+     "accepted",
+     "name",
+     "fields"
     ],
     "properties": {
      "url": {
@@ -207,6 +209,15 @@
        "string",
        "null"
       ]
+     },
+     "name": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "fields": {
+      "type": "object"
      }
     }
    }

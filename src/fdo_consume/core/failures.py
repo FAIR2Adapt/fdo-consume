@@ -31,7 +31,7 @@ NOT_CATALOGUED = {"retryable": False, "who": "maintainer"}
 
 
 class AccessError(Exception):
-    """Error raised when a pipeline stage cannot continue; the catalogue says who can act."""
+    """Error raised when a pipeline stage cannot continue; its code names who can act on it."""
 
     def __init__(self, code: str, message: str):
         """Take side, retryable and who from the code."""

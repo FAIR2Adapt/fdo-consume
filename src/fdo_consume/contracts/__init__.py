@@ -1,2 +1,2 @@
 """Consumer contracts: load, validate, and the model."""
-from .loader import CONTRACTS, EXAMPLES, _parsed, load_contract
+from .loader import _parsed, load_contract

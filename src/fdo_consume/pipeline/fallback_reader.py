@@ -7,7 +7,7 @@ import re
 from urllib.parse import urlsplit, urlunsplit
 
 from ..semantics.landing import landing_reason
-from ..semantics.media import decide, from_suffix
+from ..semantics.media import decide
 from ..core import AccessError, Descriptor, Located, Part, has_scheme
 from ..registry import register
 
@@ -28,7 +28,6 @@ INTERNAL_SUFFIXES = (".local", ".localdomain", ".internal", ".lan", ".intranet",
 MAX_SIZE_DIGITS = 18
 CAMEL = re.compile(r"([a-z])([A-Z])")
 INFERRED = "inferred from the URL suffix"
-SUFFIX_MEDIA = None  # the table moved to semantics/data/media-suffixes.yaml
 NOT_A_WORD = re.compile(r"[^a-z0-9]+")
 
 
@@ -146,11 +145,6 @@ def _part(entity: dict, root_access: str | None) -> Part:
         declared_media_type=declared,
         access=access,
     )
-
-
-def _media_from_suffix(url: str | None) -> str | None:
-    """A media type for the last suffix of the URL path, when it is a known one (shared table)."""
-    return from_suffix(url)
 
 
 def _without_user_info(url: str) -> str:

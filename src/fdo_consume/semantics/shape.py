@@ -18,7 +18,7 @@ def _rules() -> list[dict]:
 
 
 def hints(graph: CanonicalGraph) -> list[dict]:
-    """One hint per legacy namespace found among the types and properties of the graph."""
+    """One hint per pre-profile namespace found among the types and properties of the graph."""
     seen = set()
     for node, props in graph.nodes.items():
         for key, values in props.items():

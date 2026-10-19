@@ -20,7 +20,8 @@ def build_binding(descriptor: Descriptor, record, spec: dict | None, selected: P
         resources.append({key: row[key] for key in ("id", "type", "holders", "pid", "url", "in_crate", "media_type",
                                                     "media_type_source", "declared_media_type", "size", "checksum",
                                                     "payload", "why_not_payload", "access")}
-                         | {"accepted": bool(row["payload"] and media and media in accepts)})
+                         | {"name": row.get("name"), "fields": dict(row.get("fields") or {}),
+                            "accepted": bool(row["payload"] and media and media in accepts)})
     inferred = [r["id"] for r in resources if r["accepted"] and r["media_type_source"] and r["media_type_source"] != "declared"]
     return {
         "schema": SCHEMA,

@@ -1,5 +1,5 @@
-source: "Knowledge Loom Record profile 0.1.0, section 14 (legacy import and migration), read 9 October 2026"
+source: "Knowledge Loom Record profile 0.1.0, section 14 (import of earlier exports and migration)"
 namespaces:
   - prefix: "null://null/"
     terms: ["null://null/Statement", "null://null/concepts", "null://null/notation"]
-    hint: "legacy Knowledge Loom export (null://null/ terms, see profile 0.1.0 section 14); shape hint only, not profile conformance"
+    hint: "Knowledge Loom export preceding profile 0.1.0 (null://null/ terms, profile section 14); shape hint only, not profile conformance"

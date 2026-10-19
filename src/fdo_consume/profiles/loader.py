@@ -6,6 +6,8 @@ from pathlib import Path
 
 import yaml
 
+from ..core import AccessError
+
 MAPS = Path(__file__).resolve().parent / "maps"
 LEVELS = ("must", "should", "may")
 
@@ -20,11 +22,14 @@ def _load_maps(folder: str | None) -> dict:
     """All maps by id; a map that is not a mapping with an id, a source and valid levels is refused."""
     places = [MAPS] + ([Path(folder)] if folder else [])
     if folder and not Path(folder).is_dir():
-        raise ValueError(f"the profile-map folder does not exist: {folder}")
+        raise AccessError("request.bad_option", f"the profile-map folder does not exist: {folder}")
     found = {}
     for place in places:
         for path in sorted(place.glob("*.yaml")):
-            spec = yaml.safe_load(path.read_text(encoding="utf-8"))
+            try:
+                spec = yaml.safe_load(path.read_text(encoding="utf-8"))
+            except (yaml.YAMLError, UnicodeDecodeError) as err:
+                raise AccessError("request.bad_option", f"the profile map {path.name} is not YAML: {type(err).__name__}") from None
             _check(spec, path.name)
             found[spec["id"]] = spec
     return found
